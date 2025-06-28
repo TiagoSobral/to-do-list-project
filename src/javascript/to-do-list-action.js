@@ -1,5 +1,5 @@
 
-import { projects, toDoList } from "./list.js";
+import { projects, toDoList } from "./to-do-list.js";
 
 
 export function addToDoList(title, description, dueDate, priority){
