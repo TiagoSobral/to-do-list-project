@@ -1,5 +1,5 @@
 import "../css/style.css"
-import { createToDoList, addToDoItem } from "./to-do-list-action"
+import { createToDoList, addToDoItem, changeStatus } from "./to-do-list-action"
 import { allProjects } from "./to-do-list";
 
 createToDoList("Family");

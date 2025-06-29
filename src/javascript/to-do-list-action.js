@@ -23,3 +23,17 @@ export function addToDoItem(selectProject, title, description, dueDate, priority
     })
 
 }
+
+export function changeStatus(bolean, selectProject, selectToDo) {
+    
+    for (let project of allProjects) {
+        
+        for (let toDo of project.toDoArray) {
+            
+            if(project.projectName === selectProject && toDo.title === selectToDo) {
+                
+                toDo.taskStatus(bolean);
+            }
+        }
+}
+}
