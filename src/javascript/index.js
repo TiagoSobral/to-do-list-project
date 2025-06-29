@@ -1,12 +1,12 @@
 import "../css/style.css"
-import { createProject, addToDoList, addItemToCheckList, removeItemFromCheckList } from "./to-do-list-action"
+import { createToDoList, addToDoItem } from "./to-do-list-action"
 import { allProjects } from "./to-do-list";
 
-createProject("Family");
-createProject("Travel");
+createToDoList("Family");
+createToDoList("Travel");
 
-addToDoList("Family","Cleaning", "Weekly Chores", "22-22-22", 3);
-addToDoList("Family","zapp", "Weekly Chores", "22-22-22", 3);
-addToDoList("Travel","Packing", "Weekly Chores", "22-22-22", 5);
+addToDoItem("Family","Cleaning", "Weekly Chores", "22-22-22", 3);
+addToDoItem("Family","zapp", "Weekly Chores", "22-22-22", 3);
+addToDoItem("Travel","Packing", "Weekly Chores", "22-22-22", 5);
 
-console.log(allProjects);
+console.table(allProjects);
