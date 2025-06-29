@@ -1,4 +1,12 @@
-export let projects = [];
+export let allProjects = [];
+
+export class Project {
+   toDoArray = [];
+
+   constructor(name) {
+    this.projectName = name;
+   }
+}
 
 
 export class toDoList{

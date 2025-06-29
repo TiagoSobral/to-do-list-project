@@ -1,41 +1,59 @@
 
-import { projects, toDoList } from "./to-do-list.js";
+import { allProjects, Project, toDoList } from "./to-do-list.js";
 
 
-export function addToDoList(title, description, dueDate, priority){
+export function createProject(name) {
+    const newProject = new Project(name);
+    
+    allProjects.push(newProject);
+
+}
+
+
+export function addToDoList(selectProject, title, description, dueDate, priority){
     const newToDo = new toDoList(title, description, dueDate, priority);
 
-    projects.push(newToDo);
-    console.log(projects);
-}
+    let groupOfProjects = allProjects;
 
-export function addItemToCheckList(toDoListName, itemCheckList) {
-
-    for (let toDo of projects) {
-        
-        if (toDo.title === toDoListName) {
-            
-            toDo.checkList.push(itemCheckList);
+    groupOfProjects.map((project) => { 
+        if (project.projectName === selectProject) {
+            project.toDoArray.push(newToDo);
         }
-    }
+
+    })
+
 }
 
-export function removeItemFromCheckList (toDoListName, itemCheckList) {
+// export function addItemToCheckList(selectProject, toDoListName, itemCheckList) {
+
+//     let filterProject = allProjects.filter((project) => project.projectName === selectProject);
+//     let toDoListArray = filterProject.map((project) => project.toDoArray);
+
+
+//     for (let toDo of toDoListArray) {
+        
+//         if (toDo.title === toDoListName) {
+            
+//             toDo.checkList.push(itemCheckList);
+//         }
+//     }
+// }
+
+// export function removeItemFromCheckList (toDoListName, itemCheckList) {
     
-    for (let toDo of projects) {
+//     for (let toDo of allProjects) {
         
-        let checklist = toDo.checkList;
+//         let checklist = toDo.checkList;
         
-        for (let item of checklist) {
+//         for (let item of checklist) {
             
-            if (toDo.title === toDoListName && item === itemCheckList) {
+//             if (toDo.title === toDoListName && item === itemCheckList) {
                 
-                let itemIndex = checklist.indexOf(item);
+//                 let itemIndex = checklist.indexOf(item);
 
-                checklist.splice(itemIndex,1);
+//                 checklist.splice(itemIndex,1);
 
-            }
-        }
-    }
-}
-
+//             }
+//         }
+//     }
+// }
