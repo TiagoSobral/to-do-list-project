@@ -4,6 +4,8 @@ import { allProjects, Project, ToDoItem } from "./to-do-list.js";
 
 let defaultValue = "Main";
 
+
+
 export function createToDoList(name = defaultValue) {
    
     const newToDoList = new Project(name);
@@ -11,6 +13,7 @@ export function createToDoList(name = defaultValue) {
     allProjects.push(newToDoList);
 
 }
+
 
 
 export function addToDoItem(title, description, dueDate, priority, selectProject = defaultValue){
@@ -27,6 +30,8 @@ export function addToDoItem(title, description, dueDate, priority, selectProject
 
 }
 
+
+
 export function changeCompletionStatus(answer, selectProject, selectToDo) {
     
     const bring = find(selectProject, selectToDo);
@@ -37,8 +42,12 @@ export function changeCompletionStatus(answer, selectProject, selectToDo) {
 
     toDoOfChosen.taskStatus(answer);
 
+    sortBasedOnCompletion(arrayOfToDos);
+
 
 }
+
+
 
 function find(selectProject, selectToDo) {
 
@@ -61,6 +70,8 @@ function find(selectProject, selectToDo) {
     return {projectIndex, toDoIndex};
 }
 
+
+
 export function removeToDo(selectToDo, selectProject = defaultValue) {
     
     const bring = find(selectProject, selectToDo);
@@ -70,5 +81,29 @@ export function removeToDo(selectToDo, selectProject = defaultValue) {
     let toDosList = chosenProject.toDoArray;
 
     toDosList.splice(bring.toDoIndex,1);
+
+}
+
+
+
+function sortBasedOnCompletion(array) {
+
+
+    array.sort((a, b) => {
+
+    let completionA = a.completion.toLowerCase();
+
+    let completionB = b.completion.toLowerCase();
+
+    if (completionA > completionB) {
+        return 1;
+    }
+
+    if (completionA < completionB) {
+        return -1;
+    }
+
+    return 0;
+});
 
 }
