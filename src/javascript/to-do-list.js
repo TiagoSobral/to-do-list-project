@@ -16,11 +16,11 @@ export class ToDoItem{
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.checkStatus = false;
+        this.completion = "No";
     }
 
     taskStatus(status) {
-        this.checkStatus = status;
+        this.completion = status;
     } 
 
 }
