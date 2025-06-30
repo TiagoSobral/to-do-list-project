@@ -2,7 +2,9 @@
 import { allProjects, Project, ToDoItem } from "./to-do-list.js";
 
 
-export function createToDoList(name) {
+let defaultValue = "Main";
+
+export function createToDoList(name = defaultValue) {
    
     const newToDoList = new Project(name);
     
@@ -11,7 +13,7 @@ export function createToDoList(name) {
 }
 
 
-export function addToDoItem(selectProject, title, description, dueDate, priority){
+export function addToDoItem(title, description, dueDate, priority, selectProject = defaultValue){
     
     const newToDo = new ToDoItem(title, description, dueDate, priority);
 
@@ -60,7 +62,7 @@ function find(selectProject, selectToDo) {
     return {projectIndex, toDoIndex};
 }
 
-export function removeToDo(selectProject, selectToDo) {
+export function removeToDo(selectToDo, selectProject = defaultValue) {
     
     const bring = find(selectProject, selectToDo);
 
