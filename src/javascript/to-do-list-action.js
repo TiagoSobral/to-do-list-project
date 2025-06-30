@@ -29,16 +29,15 @@ export function addToDoItem(title, description, dueDate, priority, selectProject
 
 export function changeCompletionStatus(answer, selectProject, selectToDo) {
     
-    for (let project of allProjects) {
-        
-        for (let toDoItem of project.toDoArray) {
-            
-            if(project.projectName === selectProject && toDoItem.title === selectToDo) {
-                
-                toDoItem.taskStatus(answer);
-            }
-        }
-}
+    const bring = find(selectProject, selectToDo);
+
+    let arrayOfToDos = allProjects[bring.projectIndex].toDoArray;
+
+    let toDoOfChosen = arrayOfToDos[bring.toDoIndex];
+
+    toDoOfChosen.taskStatus(answer);
+
+
 }
 
 function find(selectProject, selectToDo) {
