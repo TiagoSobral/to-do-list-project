@@ -1,4 +1,4 @@
-import { allProjects } from "./to-do-list";
+import { arrayProjectsToDOM, showDefaultProject } from "./DOM-content";
 
 const body = document.querySelector("body");
 
@@ -98,6 +98,9 @@ function projectContentElements() {
 
     projectContent.appendChild(projectTitle);
     projectContent.appendChild(projectToDos);
+
+
+    showDefaultProject();
 }
 
 
@@ -117,42 +120,3 @@ function footerElements() {
 
 }
 
-
-// create button to eliminate project
-// create button to eliminate todo
-
-
-function arrayProjectsToDOM() {
-
-    const displayArea = document.querySelector(".display-area");
-
-   
-    for (let project of allProjects) {
-       
-       
-        const projectName = project.projectName;
-        
-        const projectToDoArray = project.toDoArray;
-
-        const projectTitle = document.createElement("h5");
-            projectTitle.textContent = projectName;
-
-        const ul = document.createElement("ul");
-
-
-        
-        for (let toDo of projectToDoArray) {
-
-            const li = document.createElement("li");
-                li.textContent = toDo.title;
-            
-            ul.appendChild(li);
-
-        }
-    
-        displayArea.appendChild(projectTitle);
-        displayArea.appendChild(ul);
-    
-    }
-
-}
