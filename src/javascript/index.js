@@ -3,12 +3,15 @@ import { createToDoList, addToDoItem, changeCompletionStatus, removeToDo } from 
 import { allProjects } from "./to-do-list";
 import { createDOM } from "./DOM-creation.js";
 
+createToDoList();
 createToDoList("Family");
 createToDoList("Travel");
 
 addToDoItem("Cleaning", "Weekly Chores", "22-22-22",3, "Family");
 addToDoItem("zapp", "Weekly Chores", "22-22-22", 3, "Family");
 addToDoItem("Packing", "Weekly Chores", "22-22-22", 5, "Travel");
+addToDoItem("Finish Project", "To Do List", "Tomorrow", 5);
 
 
 createDOM();
+
