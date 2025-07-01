@@ -30,26 +30,26 @@ export function addToDoItem(title, description, dueDate, priority, selectProject
 
 }
 
+export function findProject(selectProject = "Main") {
 
+    let chosenProject;
 
-export function changeCompletionStatus(answer, selectProject, selectToDo) {
-    
-    const bring = find(selectProject, selectToDo);
+    for (let project of allProjects) {
 
-    let arrayOfToDos = allProjects[bring.projectIndex].toDoArray;
+        if (project.projectName === selectProject) {
 
-    let toDoOfChosen = arrayOfToDos[bring.toDoIndex];
+            chosenProject = project;
 
-    toDoOfChosen.taskStatus(answer);
+        }
 
-    sortBasedOnCompletion(arrayOfToDos);
+    }
 
-
+    return { chosenProject };
 }
 
 
 
-function find(selectProject, selectToDo) {
+function findIndex(selectProject, selectToDo) {
 
     let projectIndex;
     
@@ -72,9 +72,27 @@ function find(selectProject, selectToDo) {
 
 
 
+export function changeCompletionStatus(answer, selectProject, selectToDo) {
+    
+    const bring = findIndex(selectProject, selectToDo);
+
+    let arrayOfToDos = allProjects[bring.projectIndex].toDoArray;
+
+    let toDoOfChosen = arrayOfToDos[bring.toDoIndex];
+
+    toDoOfChosen.taskStatus(answer);
+
+    sortBasedOnCompletion(arrayOfToDos);
+
+
+}
+
+
+
+
 export function removeToDo(selectToDo, selectProject = defaultValue) {
     
-    const bring = find(selectProject, selectToDo);
+    const bring = findIndex(selectProject, selectToDo);
 
     let chosenProject = allProjects[bring.projectIndex];
 
