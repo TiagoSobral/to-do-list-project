@@ -1,3 +1,5 @@
+import { allProjects } from "./to-do-list";
+
 const body = document.querySelector("body");
 
 export function createDOM() {
@@ -46,6 +48,12 @@ function projectsTabElements() {
 
     const projectList = document.querySelector("aside");
 
+    const filterArea = document.createElement("div")
+        filterArea.setAttribute("class", "filter-area");
+
+    const displayArea = document.createElement("div");
+        displayArea.setAttribute("class", "display-area");
+
     const search = document.createElement("button");
         search.setAttribute("class", "search");
         search.textContent = "Search"
@@ -63,10 +71,17 @@ function projectsTabElements() {
         completedToDos.textContent = "Completed"
 
     
-    projectList.appendChild(search);
-    projectList.appendChild(todayToDos);
-    projectList.appendChild(upcomingToDos);
-    projectList.appendChild(completedToDos);
+
+    projectList.appendChild(filterArea);
+        filterArea.appendChild(search);
+        filterArea.appendChild(todayToDos);
+        filterArea.appendChild(upcomingToDos);
+        filterArea.appendChild(completedToDos);
+
+    projectList.appendChild(displayArea);
+
+
+    arrayProjectsToDOM();
 }
 
 
@@ -105,3 +120,39 @@ function footerElements() {
 
 // create button to eliminate project
 // create button to eliminate todo
+
+
+function arrayProjectsToDOM() {
+
+    const displayArea = document.querySelector(".display-area");
+
+   
+    for (let project of allProjects) {
+       
+       
+        const projectName = project.projectName;
+        
+        const projectToDoArray = project.toDoArray;
+
+        const projectTitle = document.createElement("h5");
+            projectTitle.textContent = projectName;
+
+        const ul = document.createElement("ul");
+
+
+        
+        for (let toDo of projectToDoArray) {
+
+            const li = document.createElement("li");
+                li.textContent = toDo.title;
+            
+            ul.appendChild(li);
+
+        }
+    
+        displayArea.appendChild(projectTitle);
+        displayArea.appendChild(ul);
+    
+    }
+
+}
