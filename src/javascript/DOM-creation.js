@@ -4,33 +4,15 @@ const body = document.querySelector("body");
 
 export function createDOM() {
 
-    baseElements();
-
     mainElements();
 
     projectsTabElements();
 
     projectContentElements();
 
-    footerElements();
 }
-
-
-function baseElements() {
-
-    const main = document.createElement("main");
-
-    const footer = document.createElement("footer");
-
-    body.appendChild(main);
-    body.appendChild(footer);
-
-}
-
 
 function mainElements() {
-
-    const main = document.querySelector("main");
 
     const projectList = document.createElement("aside");
         projectList.setAttribute("class", "project-list");
@@ -38,8 +20,8 @@ function mainElements() {
     const projectContents = document.createElement("section");
         projectContents.setAttribute("class", "project-content");
 
-    main.appendChild(projectList);
-    main.appendChild(projectContents);
+    body.appendChild(projectList);
+    body.appendChild(projectContents);
 
 }
 
