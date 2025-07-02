@@ -36,9 +36,9 @@ function projectsTabElements() {
     const displayArea = document.createElement("div");
         displayArea.setAttribute("class", "display-area");
 
-    const search = document.createElement("button");
-        search.setAttribute("class", "search");
-        search.textContent = "Search"
+    const addProject = document.createElement("button");
+        addProject.setAttribute("class", "add-project");
+        addProject.textContent = "Add Project";
     
     const todayToDos = document.createElement("button");
         todayToDos.setAttribute("class", "today");
@@ -55,7 +55,7 @@ function projectsTabElements() {
     
 
     projectList.appendChild(filterArea);
-        filterArea.appendChild(search);
+        filterArea.appendChild(addProject);
         filterArea.appendChild(todayToDos);
         filterArea.appendChild(upcomingToDos);
         filterArea.appendChild(completedToDos);
