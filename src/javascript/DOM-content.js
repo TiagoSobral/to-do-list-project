@@ -37,22 +37,22 @@ export function arrayProjectsToDOM() {
 }
 
 
-export function showDefaultProject() {
+export function showProject(name = "Main") {
 
 
-    const defaultProject = findProject().chosenProject;
+    const chosenProject = findProject(name).chosenProject;
 
-    let toDosOfDefaultProject = defaultProject.toDoArray;
+    let toDosOfProject = chosenProject.toDoArray;
 
     
     const projectTitle = document.querySelector(".project-title");
-        projectTitle.textContent = defaultProject.projectName;
+        projectTitle.textContent = chosenProject.projectName;
     
     const projectToDos = document.querySelector(".project-to-dos");
 
 
    
-    for (let toDo of toDosOfDefaultProject) {
+    for (let toDo of toDosOfProject) {
 
         
         let arrayOfInfoNames = Object.keys(toDo);
