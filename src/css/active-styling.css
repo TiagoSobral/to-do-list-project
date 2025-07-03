@@ -1,7 +1,7 @@
-button:hover {
+.project-list button:hover {
 
-    background-color: rgb(236, 220, 191);
+    background-color:  rgb(163, 29, 29);
 
-    color: rgb(163, 29, 29);
+    color: rgb(236, 220, 191);
 
 }
