@@ -10,6 +10,7 @@ export function createDOM() {
 
     projectContentElements();
 
+    addSpans();
 }
 
 function mainElements() {
@@ -38,19 +39,19 @@ function projectsTabElements() {
 
     const addProject = document.createElement("button");
         addProject.setAttribute("class", "add-project");
-        addProject.textContent = "Add Project";
+        // addProject.textContent = "Add Project";
     
     const todayToDos = document.createElement("button");
         todayToDos.setAttribute("class", "today");
-        todayToDos.textContent = "Today";
+        // todayToDos.textContent = "Today";
 
     const upcomingToDos = document.createElement("button");
         upcomingToDos.setAttribute("class", "upcoming");
-        upcomingToDos.textContent = "Upcoming";
+        // upcomingToDos.textContent = "Upcoming";
 
     const completedToDos = document.createElement("button");
         completedToDos.setAttribute("class", "completed-todos");
-        completedToDos.textContent = "Completed"
+        // completedToDos.textContent = "Completed"
 
     
 
@@ -60,10 +61,17 @@ function projectsTabElements() {
         filterArea.appendChild(upcomingToDos);
         filterArea.appendChild(completedToDos);
 
+
     projectList.appendChild(displayArea);
 
 
     arrayProjectsToDOM();
+
+
+    // addProject.textContent = "Add Project";
+    // todayToDos.textContent = "Today";
+    // upcomingToDos.textContent = "Upcoming";
+    // completedToDos.textContent = "Completed"
 }
 
 
@@ -99,6 +107,23 @@ function footerElements() {
 
     footer.appendChild(addProject);
     footer.appendChild(addToDo);
+
+}
+
+function addSpans() {
+
+    let btnTitles = ["Add Project", "Today", "Upcoming", "Completed"]
+
+    const buttons = document.querySelectorAll("button");
+
+    for (let i = 0; i <= buttons.length; i++) {
+        const span = document.createElement("span");
+
+        buttons[i].appendChild(span);
+
+        span.textContent = `${btnTitles[i]}`;
+
+    }
 
 }
 

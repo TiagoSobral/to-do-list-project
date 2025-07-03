@@ -1,0 +1,44 @@
+
+span, 
+h5 {
+    position: relative;
+}
+
+button:first-child span::before,
+button:nth-child(2) span::before,
+button:nth-child(3) span::before,
+button:last-child span::before,
+h5::before {
+
+    position: absolute;
+    content: "";
+    
+    width: 20px;
+    height: 20px;
+    
+    top: 1px;
+    left: -30px;
+
+    background-size: contain;
+
+}
+
+button:first-child span::before {
+    background-image: url("../svgs/plus-circle.svg");
+}
+
+button:nth-child(2) span::before {
+    background-image: url("../svgs/calendar-day.svg");
+}
+
+button:nth-child(3) span::before {
+    background-image: url("../svgs/calendar-month.svg");
+}
+
+button:last-child span::before {
+    background-image: url("../svgs/complete.svg");
+}
+
+h5::before {
+    background-image: url("../svgs/hash.svg");
+}
