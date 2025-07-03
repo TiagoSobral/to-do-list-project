@@ -1,9 +1,10 @@
 import "../css/style.css"
 import "../css/svgs.css"
 import "../css/active-styling.css"
-import { createToDoList, addToDoItem, changeCompletionStatus, removeToDo } from "./to-do-list-action"
-import { allProjects } from "./to-do-list";
+
+import { createToDoList, addToDoItem, changeCompletionStatus, removeToDo} from "./to-do-list-action"
 import { createDOM } from "./DOM-creation.js";
+import { expandProjectToMainScreen } from "./DOM-logic.js";
 
 createToDoList();
 createToDoList("Family");
@@ -16,3 +17,4 @@ addToDoItem("Finish Project", "To Do List", "Tomorrow", 5);
 
 
 createDOM();
+expandProjectToMainScreen();
