@@ -10,7 +10,13 @@ export function createDOM() {
 
     projectContentElements();
 
+    showDefaultProject();
+
+    btnAddToDo();
+
     addSpans();
+
+
 }
 
 function mainElements() {
@@ -39,19 +45,18 @@ function projectsTabElements() {
 
     const addProject = document.createElement("button");
         addProject.setAttribute("class", "add-project");
-        // addProject.textContent = "Add Project";
+
     
     const todayToDos = document.createElement("button");
         todayToDos.setAttribute("class", "today");
-        // todayToDos.textContent = "Today";
+
 
     const upcomingToDos = document.createElement("button");
         upcomingToDos.setAttribute("class", "upcoming");
-        // upcomingToDos.textContent = "Upcoming";
+
 
     const completedToDos = document.createElement("button");
         completedToDos.setAttribute("class", "completed-todos");
-        // completedToDos.textContent = "Completed"
 
     
 
@@ -66,12 +71,6 @@ function projectsTabElements() {
 
 
     arrayProjectsToDOM();
-
-
-    // addProject.textContent = "Add Project";
-    // todayToDos.textContent = "Today";
-    // upcomingToDos.textContent = "Upcoming";
-    // completedToDos.textContent = "Completed"
 }
 
 
@@ -89,25 +88,21 @@ function projectContentElements() {
     projectContent.appendChild(projectTitle);
     projectContent.appendChild(projectToDos);
 
-
-    showDefaultProject();
 }
 
 
 
-function footerElements() {
+function btnAddToDo() {
     
-    const footer = document.querySelector("footer");
+    const projectShowing = document.querySelector(".project-to-dos");
 
-    const addProject = document.createElement("button");
-        addProject.setAttribute("class", "add-project");
-
-    const addToDo = document.createElement("button");
+    const addToDo = document.createElement("div");
         addToDo.setAttribute("class", "add-todo");
+        const span = document.createElement("span");
+            span.textContent = "Add Task";
 
-    footer.appendChild(addProject);
-    footer.appendChild(addToDo);
-
+    projectShowing.appendChild(addToDo);
+    addToDo.appendChild(span);
 }
 
 function addSpans() {
