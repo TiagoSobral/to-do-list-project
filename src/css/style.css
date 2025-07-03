@@ -64,7 +64,7 @@ body {
 .project-list, .filter-area, .display-area {
     display: flex;
     flex-direction: column;
-    padding-left: 2rem;
+    padding-left: 1.7rem;
 }
 
 .project-list {
@@ -87,9 +87,8 @@ body {
 }
 
 .filter-area button{
-    width: 90%;
+    width: 70%;
     height: 2rem;
-    /* padding-left: 1rem; */
     
     text-align: start;
     border-style: none;
@@ -169,3 +168,10 @@ li {
 }
 
 
+button, 
+h5, 
+li {
+
+  padding-left: 5px;
+
+}
