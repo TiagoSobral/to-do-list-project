@@ -8,7 +8,8 @@ button:first-child span::before,
 button:nth-child(2) span::before,
 button:nth-child(3) span::before,
 button:last-child span::before,
-h5::before {
+h5::before,
+.add-todo span::before {
 
     position: absolute;
     content: "";
@@ -25,7 +26,8 @@ h5::before {
 button:first-child span::before,
 button:nth-child(2) span::before,
 button:nth-child(3) span::before,
-button:last-child span::before {
+button:last-child span::before,
+.add-todo span::before {
 
     top: 0;
     left: -35px;
@@ -39,7 +41,8 @@ h5::before {
 }
 
 
-button:first-child span::before {
+button:first-child span::before,
+.add-todo span::before {
     background-image: url("../svgs/plus-circle.svg");
 }
 
@@ -58,3 +61,5 @@ button:last-child span::before {
 h5::before {
     background-image: url("../svgs/hash.svg");
 }
+
+

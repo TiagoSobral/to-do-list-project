@@ -5,3 +5,8 @@
     color: rgb(236, 220, 191);
 
 }
+
+.add-todo:hover {
+
+    border-bottom: 0.8px solid  rgb(163, 29, 29);
+}
