@@ -1,6 +1,8 @@
-import { arrayProjectsToDOM, showDefaultProject } from "./DOM-content";
+import { arrayProjectsToDOM, showProject } from "./DOM-content";
 
 const body = document.querySelector("body");
+
+let btnTitles = ["Add Project", "Today", "Upcoming", "Completed"]
 
 export function createDOM() {
 
@@ -10,12 +12,11 @@ export function createDOM() {
 
     projectContentElements();
 
-    showDefaultProject();
-
-    btnAddToDo();
+    showProject();
 
     addSpans();
 
+    btnAddToDo();
 
 }
 
@@ -92,7 +93,7 @@ function projectContentElements() {
 
 
 
-function btnAddToDo() {
+export function btnAddToDo() {
     
     const projectShowing = document.querySelector(".project-to-dos");
 
@@ -107,14 +108,14 @@ function btnAddToDo() {
 
 function addSpans() {
 
-    let btnTitles = ["Add Project", "Today", "Upcoming", "Completed"]
-
     const buttons = document.querySelectorAll("button");
+    
 
-    for (let i = 0; i <= buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
+
         const span = document.createElement("span");
 
-        buttons[i].appendChild(span);
+        buttons[i].append(span);
 
         span.textContent = `${btnTitles[i]}`;
 
