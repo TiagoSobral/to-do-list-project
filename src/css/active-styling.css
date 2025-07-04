@@ -1,4 +1,5 @@
-.project-list button:hover {
+.project-list button:hover, 
+h5:hover {
 
     background-color:  rgb(163, 29, 29);
 
