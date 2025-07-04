@@ -123,3 +123,23 @@ function addSpans() {
 
 }
 
+
+export function addInputForNameProject() {
+
+    const projectList = document.querySelector(".display-area");
+
+    const h5 = document.createElement("h5");
+        const form = document.createElement("form");
+            const inputName = document.createElement("input");
+                inputName.setAttribute("type", "text");
+                inputName.setAttribute("id", "project-name-input");
+                
+
+    h5.setAttribute("class", "input-name");
+    
+    projectList.appendChild(h5);
+        h5.appendChild(form);
+            form.appendChild(inputName);
+
+}
+
