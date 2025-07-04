@@ -1,5 +1,5 @@
 .project-list button:hover, 
-h5:hover {
+.project-list-title:hover {
 
     background-color:  rgb(163, 29, 29);
 
@@ -10,4 +10,23 @@ h5:hover {
 .add-todo:hover {
 
     border-bottom: 0.8px solid  rgb(163, 29, 29);
+}
+
+
+#project-name-input {
+
+    width: 100%;
+
+    padding-left: 0.3rem;
+    font-size: 1.1rem;
+
+    border: none;
+    border-radius: 0.3rem;
+
+    appearance: none;
+    outline: solid 1px  rgb(163, 29, 29);
+
+    color:  rgb(163, 29, 29);
+
+    overflow-x: hidden;
 }
