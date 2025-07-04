@@ -1,5 +1,5 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
-import { btnAddToDo } from "./DOM-creation";
+import { addInputForNameProject, btnAddToDo } from "./DOM-creation";
 import { createToDoList } from "./to-do-list-action";
  
 
@@ -48,20 +48,37 @@ export function listenerProjectExpand() {
 }
 
 
-export function addNewProject() {
+export function addProjectListener() {
 
     const btnAddProject = document.querySelector(".add-project");
 
     btnAddProject.addEventListener("click", () => {
 
-        removeProjectListDOM();
-        
-        createToDoList("Tiago");
-        
-        arrayProjectsToDOM();
+        addInputForNameProject();
 
-        listenerProjectExpand();
-
+        inputListener();
     })
+
+
+}
+
+
+function inputListener() {
+    
+    const inputName = document.querySelector("input");
+
+    inputName.addEventListener("keydown", (e) => {
+
+
+        if(e.code == "Enter") {
+
+            createToDoList(inputName.value);
+
+            removeProjectListDOM()
+
+            arrayProjectsToDOM();
+        }
+
+    } )
 
 }
