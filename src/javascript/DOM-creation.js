@@ -124,6 +124,7 @@ function addSpans() {
 }
 
 
+
 export function addInputForNameProject() {
 
     const projectList = document.querySelector(".display-area");
@@ -133,13 +134,79 @@ export function addInputForNameProject() {
             const inputName = document.createElement("input");
                 inputName.setAttribute("type", "text");
                 inputName.setAttribute("id", "project-name-input");
-                
+
 
     h5.setAttribute("class", "input-name");
     
     projectList.appendChild(h5);
         h5.appendChild(form);
             form.appendChild(inputName);
+
+}
+
+
+
+export function addInputsForToDos() {
+
+    const projectToDos = document.querySelector(".project-to-dos");
+
+    const addToDo = document.querySelector(".add-todo");
+
+
+    const form = document.createElement("form");
+        const ul = document.createElement("ul");
+            
+            const inputTitle = document.createElement("input");
+                inputTitle.setAttribute("type", "text");
+                inputTitle.setAttribute("id", "to-do-title-input");
+
+            const inputDescription = document.createElement("input")
+                inputTitle.setAttribute("type", "text");
+                inputTitle.setAttribute("id", "to-do-description-input");
+            
+            const inputDueDate = document.createElement("input")
+                inputTitle.setAttribute("type", "date");
+                inputTitle.setAttribute("id", "to-do-due-date-input");
+            
+            const inputPriority = document.createElement("input")
+                inputTitle.setAttribute("type", "number");
+                inputTitle.setAttribute("id", "to-do-priority-input");
+            
+            const inputCompletion = document.createElement("input")
+                inputTitle.setAttribute("type", "text");
+                inputTitle.setAttribute("id", "to-do-completion-input");
+
+
+    projectToDos.insertBefore(form, addToDo);
+        form.appendChild(ul);
+            ul.appendChild(inputTitle);
+            ul.appendChild(inputDescription);
+            ul.appendChild(inputDueDate);
+            ul.appendChild(inputPriority);
+            ul.appendChild(inputCompletion);
+
+
+}
+
+
+
+export function removeProjectContentDOM() {
+    const todosContentDOM = document.querySelectorAll(".project-to-dos > ul");
+
+    const btnAddTask = document.querySelectorAll(".add-todo");
+
+    todosContentDOM.forEach((element) => element.remove());
+
+    btnAddTask.forEach((element) => element.remove());
+
+}
+
+export function removeProjectListDOM() {
+
+    const projectList = document.querySelectorAll(".display-area > *");
+
+    projectList.forEach((element) => element.remove());
+
 
 }
 
