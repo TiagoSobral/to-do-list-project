@@ -1,27 +1,8 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
-import { addInputForNameProject, btnAddToDo } from "./DOM-creation";
+import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
 import { createToDoList } from "./to-do-list-action";
  
 
-function removeProjectContentDOM() {
-    const todosContentDOM = document.querySelectorAll(".project-to-dos > ul");
-
-    const btnAddTask = document.querySelectorAll(".add-todo");
-
-    todosContentDOM.forEach((element) => element.remove());
-
-    btnAddTask.forEach((element) => element.remove());
-
-}
-
-function removeProjectListDOM() {
-
-    const projectList = document.querySelectorAll(".display-area > *");
-
-    projectList.forEach((element) => element.remove());
-
-
-}
 
 export function listenerProjectExpand() {
 
@@ -77,8 +58,21 @@ function inputListener() {
             removeProjectListDOM()
 
             arrayProjectsToDOM();
+
         }
 
     } )
 
+}
+
+
+export function addTaskListener() {
+
+    const newTask = document.querySelector(".add-todo");
+
+    newTask.addEventListener("click", () => {
+
+        addInputsForToDos();
+
+    })
 }
