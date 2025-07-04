@@ -4,7 +4,7 @@ import "../css/active-styling.css"
 
 import { createToDoList, addToDoItem, changeCompletionStatus, removeToDo} from "./to-do-list-action"
 import { createDOM } from "./DOM-creation.js";
-import { addProjectListener, listenerProjectExpand } from "./DOM-logic.js";
+import { addProjectListener, addTaskListener, listenerProjectExpand } from "./DOM-logic.js";
 
 createToDoList();
 createToDoList("Family");
@@ -19,6 +19,7 @@ addToDoItem("Finish Project", "To Do List", "Tomorrow", 5);
 createDOM();
 listenerProjectExpand();
 addProjectListener();
+addTaskListener();
 
 
 // add project button - Done (need to think of a way to add name to project with input)
