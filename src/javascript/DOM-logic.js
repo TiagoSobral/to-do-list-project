@@ -1,8 +1,9 @@
-import { showProject } from "./DOM-content";
+import { arrayProjectsToDOM, showProject } from "./DOM-content";
 import { btnAddToDo } from "./DOM-creation";
+import { createToDoList } from "./to-do-list-action";
  
 
-function eliminateDOM() {
+function removeProjectContentDOM() {
     const todosContentDOM = document.querySelectorAll(".project-to-dos > ul");
 
     const btnAddTask = document.querySelectorAll(".add-todo");
@@ -13,7 +14,16 @@ function eliminateDOM() {
 
 }
 
-export function expandProjectToMainScreen() {
+function removeProjectListDOM() {
+
+    const projectList = document.querySelectorAll(".display-area > *");
+
+    projectList.forEach((element) => element.remove());
+
+
+}
+
+export function listenerProjectExpand() {
 
     const h5s = document.querySelectorAll("h5");
 
@@ -22,9 +32,8 @@ export function expandProjectToMainScreen() {
         let projectTitle = h5.textContent;
 
         h5.addEventListener("click", () => {
-            console.log("tiago");
             
-            eliminateDOM();
+            removeProjectContentDOM();
             
             showProject(projectTitle);
             
@@ -35,5 +44,24 @@ export function expandProjectToMainScreen() {
     })
 
 
+
+}
+
+
+export function addNewProject() {
+
+    const btnAddProject = document.querySelector(".add-project");
+
+    btnAddProject.addEventListener("click", () => {
+
+        removeProjectListDOM();
+        
+        createToDoList("Tiago");
+        
+        arrayProjectsToDOM();
+
+        listenerProjectExpand();
+
+    })
 
 }
