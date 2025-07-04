@@ -15,6 +15,7 @@ export function arrayProjectsToDOM() {
 
         const projectTitle = document.createElement("h5");
             projectTitle.textContent = projectName;
+            projectTitle.setAttribute("class", "project-list-title");
 
         const ul = document.createElement("ul");
 
