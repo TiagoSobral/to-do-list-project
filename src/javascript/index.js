@@ -4,7 +4,7 @@ import "../css/active-styling.css"
 
 import { createToDoList, addToDoItem, changeCompletionStatus, removeToDo} from "./to-do-list-action"
 import { createDOM } from "./DOM-creation.js";
-import { expandProjectToMainScreen } from "./DOM-logic.js";
+import { addNewProject, listenerProjectExpand } from "./DOM-logic.js";
 
 createToDoList();
 createToDoList("Family");
@@ -17,4 +17,15 @@ addToDoItem("Finish Project", "To Do List", "Tomorrow", 5);
 
 
 createDOM();
-expandProjectToMainScreen();
+listenerProjectExpand();
+addNewProject();
+
+
+// add project button
+// add task button
+
+// today, upcoming and complete btns
+
+// eliminate button for task and project
+
+// figure out what to do with the complete ones 
