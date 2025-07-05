@@ -1,5 +1,6 @@
 .project-list button:hover, 
-.project-list-title:hover {
+.project-list-title:hover, 
+#btn-submit {
 
     background-color:  rgb(163, 29, 29);
 
@@ -61,4 +62,17 @@ select {
 
 .project-to-dos form {
     margin-top: 0.5rem;
+}
+
+#btn-submit {
+
+    width: 3rem;
+
+    border: none;
+    border-radius: 0.9rem;
+
+    padding-right: 5px;
+
+    font-weight: 500;
+
 }

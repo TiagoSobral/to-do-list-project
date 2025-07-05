@@ -183,9 +183,10 @@ export function addInputsForToDos() {
                     optionHigh.setAttribute("value", "High");
                     optionHigh.textContent = "High";
             
-            // const inputCompletion = document.createElement("input")
-            //     inputCompletion.setAttribute("type", "checkbox");
-            //     inputCompletion.setAttribute("id", "to-do-completion-input");
+            const inputSubmit = document.createElement("button")
+                inputSubmit.setAttribute("type", "submit");
+                inputSubmit.setAttribute("id", "btn-submit");
+                inputSubmit.textContent = "Add";
 
 
     projectToDos.insertBefore(form, addToDo);
@@ -197,7 +198,7 @@ export function addInputsForToDos() {
                 inputPriority.appendChild(optionHigh);
                 inputPriority.appendChild(optionMedium);
                 inputPriority.appendChild(optionLow);
-            // ul.appendChild(inputCompletion);
+            ul.appendChild(inputSubmit);
 
 
 
