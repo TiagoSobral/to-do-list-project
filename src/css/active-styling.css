@@ -13,6 +13,20 @@
 }
 
 
+#project-name-input, 
+.project-to-dos form input, 
+select {
+
+    border: none;
+    border-radius: 0.3rem;
+
+    outline: solid 1px  rgb(163, 29, 29);
+
+    color:  rgb(163, 29, 29);
+
+    overflow-x: hidden;
+}
+
 #project-name-input {
 
     width: 100%;
@@ -20,13 +34,31 @@
     padding-left: 0.3rem;
     font-size: 1.1rem;
 
-    border: none;
-    border-radius: 0.3rem;
+    appearance: none;
+
+}
+
+
+.project-to-dos form input {
+
+    width: 12ch;
+
+    padding-left: 0.3rem;
 
     appearance: none;
-    outline: solid 1px  rgb(163, 29, 29);
+}
 
-    color:  rgb(163, 29, 29);
+#to-do-completion-input {
 
-    overflow-x: hidden;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-right: 0.2rem;
+
+    border-radius: 0.2rem;
+
+    appearance: none;
+}
+
+.project-to-dos form {
+    margin-top: 0.5rem;
 }
