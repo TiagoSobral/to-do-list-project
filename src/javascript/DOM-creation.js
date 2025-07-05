@@ -161,20 +161,31 @@ export function addInputsForToDos() {
                 inputTitle.setAttribute("id", "to-do-title-input");
 
             const inputDescription = document.createElement("input")
-                inputTitle.setAttribute("type", "text");
-                inputTitle.setAttribute("id", "to-do-description-input");
+                inputDescription.setAttribute("type", "text");
+                inputDescription.setAttribute("id", "to-do-description-input");
             
             const inputDueDate = document.createElement("input")
-                inputTitle.setAttribute("type", "date");
-                inputTitle.setAttribute("id", "to-do-due-date-input");
+                inputDueDate.setAttribute("type", "date");
+                inputDueDate.setAttribute("id", "to-do-due-date-input");
             
-            const inputPriority = document.createElement("input")
-                inputTitle.setAttribute("type", "number");
-                inputTitle.setAttribute("id", "to-do-priority-input");
+            const inputPriority = document.createElement("select")
+                inputPriority .setAttribute("id", "to-do-priority-input");
+                
+                const optionLow = document.createElement("option");
+                    optionLow.setAttribute("value", "Low");
+                    optionLow.textContent = "Low";
+
+                const optionMedium = document.createElement("option");
+                    optionMedium.setAttribute("value", "Medium");
+                    optionMedium.textContent = "Medium";
+
+                const optionHigh = document.createElement("option");
+                    optionHigh.setAttribute("value", "High");
+                    optionHigh.textContent = "High";
             
             const inputCompletion = document.createElement("input")
-                inputTitle.setAttribute("type", "text");
-                inputTitle.setAttribute("id", "to-do-completion-input");
+                inputCompletion.setAttribute("type", "checkbox");
+                inputCompletion.setAttribute("id", "to-do-completion-input");
 
 
     projectToDos.insertBefore(form, addToDo);
@@ -183,7 +194,11 @@ export function addInputsForToDos() {
             ul.appendChild(inputDescription);
             ul.appendChild(inputDueDate);
             ul.appendChild(inputPriority);
+                inputPriority.appendChild(optionHigh);
+                inputPriority.appendChild(optionMedium);
+                inputPriority.appendChild(optionLow);
             ul.appendChild(inputCompletion);
+
 
 
 }
