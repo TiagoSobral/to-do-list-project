@@ -1,6 +1,6 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
 import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
-import { createToDoList } from "./to-do-list-action";
+import { addToDoItem, createToDoList } from "./to-do-list-action";
  
 
 
@@ -74,5 +74,47 @@ export function addTaskListener() {
 
         addInputsForToDos();
 
+        btnAddListener();
+
     })
+}
+
+
+function btnAddListener() {
+
+    const btnAdd = document.querySelector("#btn-submit");
+
+
+    btnAdd.addEventListener("click", (e) => {
+
+        const todoInputs = document.querySelectorAll(".project-to-dos input")
+
+        const todoSelect = document.querySelector("select");
+
+
+        let inputTitle = todoInputs[0].value;
+        let inputDescription = todoInputs[1].value;
+        let inputDueDate = todoInputs[2].value;
+        let inputPriority = todoSelect[0].value;
+
+        e.preventDefault();
+
+        addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority)
+
+        removeProjectListDOM();
+
+        removeProjectContentDOM();
+
+        arrayProjectsToDOM();
+
+        addProjectListener();
+
+        showProject();
+
+        btnAddToDo()
+
+        addTaskListener();
+
+    })
+
 }
