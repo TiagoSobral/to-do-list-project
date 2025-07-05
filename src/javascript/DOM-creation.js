@@ -165,8 +165,10 @@ export function addInputsForToDos() {
                 inputDescription.setAttribute("id", "to-do-description-input");
             
             const inputDueDate = document.createElement("input")
-                inputDueDate.setAttribute("type", "date");
+                inputDueDate.setAttribute("type", "tell");
                 inputDueDate.setAttribute("id", "to-do-due-date-input");
+                inputDueDate.setAttribute("placeholder", "DD-MM");
+                inputDueDate.setAttribute("pattern", "(0[0-9]|[12][0-9]|3[0-1])-(0[1-9]|[1][0-2])");
             
             const inputPriority = document.createElement("select")
                 inputPriority .setAttribute("id", "to-do-priority-input");
