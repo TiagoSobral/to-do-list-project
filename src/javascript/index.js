@@ -25,8 +25,7 @@ addTaskListener();
 console.log(allProjects);
 
 
-// add project button - Done (need to think of a way to add name to project with input)
-// add task button
+// listener doesn't work when project expand when a new project is entered.
 
 // today, upcoming and complete btns
 

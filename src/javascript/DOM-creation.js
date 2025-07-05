@@ -1,4 +1,5 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
+import { addProjectListener, addTaskListener, listenerProjectExpand } from "./DOM-logic";
 
 const body = document.querySelector("body");
 

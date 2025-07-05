@@ -20,7 +20,7 @@ export function listenerProjectExpand() {
             
             btnAddToDo();
 
-
+            addTaskListener();
         })
     })
 
@@ -38,6 +38,7 @@ export function addProjectListener() {
         addInputForNameProject();
 
         inputListener();
+
     })
 
 
@@ -58,6 +59,8 @@ function inputListener() {
             removeProjectListDOM()
 
             arrayProjectsToDOM();
+
+            listenerProjectExpand();
 
         }
 
