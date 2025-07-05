@@ -159,32 +159,44 @@ export function addInputsForToDos() {
             const inputTitle = document.createElement("input");
                 inputTitle.setAttribute("type", "text");
                 inputTitle.setAttribute("id", "to-do-title-input");
+                inputTitle.setAttribute("minlength", "2")
+
+
 
             const inputDescription = document.createElement("input")
                 inputDescription.setAttribute("type", "text");
                 inputDescription.setAttribute("id", "to-do-description-input");
+                inputTitle.setAttribute("minlength", "2")
             
+
+
             const inputDueDate = document.createElement("input")
                 inputDueDate.setAttribute("type", "tell");
                 inputDueDate.setAttribute("id", "to-do-due-date-input");
                 inputDueDate.setAttribute("placeholder", "DD-MM");
                 inputDueDate.setAttribute("pattern", "(0[0-9]|[12][0-9]|3[0-1])-(0[1-9]|[1][0-2])");
             
+
+
             const inputPriority = document.createElement("select")
                 inputPriority .setAttribute("id", "to-do-priority-input");
                 
+
                 const optionLow = document.createElement("option");
                     optionLow.setAttribute("value", "Low");
                     optionLow.textContent = "Low";
+
 
                 const optionMedium = document.createElement("option");
                     optionMedium.setAttribute("value", "Medium");
                     optionMedium.textContent = "Medium";
 
+
                 const optionHigh = document.createElement("option");
                     optionHigh.setAttribute("value", "High");
                     optionHigh.textContent = "High";
             
+
             const inputSubmit = document.createElement("button")
                 inputSubmit.setAttribute("type", "submit");
                 inputSubmit.setAttribute("id", "btn-submit");
@@ -192,11 +204,14 @@ export function addInputsForToDos() {
 
 
     projectToDos.insertBefore(form, addToDo);
-        form.appendChild(ul);
-            ul.appendChild(inputTitle);
+       
+    form.appendChild(ul);
+           
+        ul.appendChild(inputTitle);
             ul.appendChild(inputDescription);
             ul.appendChild(inputDueDate);
             ul.appendChild(inputPriority);
+
                 inputPriority.appendChild(optionHigh);
                 inputPriority.appendChild(optionMedium);
                 inputPriority.appendChild(optionLow);
@@ -209,7 +224,7 @@ export function addInputsForToDos() {
 
 
 export function removeProjectContentDOM() {
-    const todosContentDOM = document.querySelectorAll(".project-to-dos > ul");
+    const todosContentDOM = document.querySelectorAll(".project-to-dos > *");
 
     const btnAddTask = document.querySelectorAll(".add-todo");
 
@@ -227,4 +242,6 @@ export function removeProjectListDOM() {
 
 
 }
+
+
 
