@@ -90,9 +90,12 @@ function btnAddListener() {
 
     btnAdd.addEventListener("click", (e) => {
 
+        const projectTitle = document.querySelector(".project-title").textContent;
+
         const todoInputs = document.querySelectorAll(".project-to-dos input")
 
         const todoSelect = document.querySelector("select");
+
 
 
         let inputTitle = todoInputs[0].value;
@@ -102,7 +105,7 @@ function btnAddListener() {
 
         e.preventDefault();
 
-        addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority)
+        addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority, projectTitle)
 
         removeProjectListDOM();
 
@@ -112,7 +115,7 @@ function btnAddListener() {
 
         addProjectListener();
 
-        showProject();
+        showProject(projectTitle);
 
         btnAddToDo()
 
