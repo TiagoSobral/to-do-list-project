@@ -48,7 +48,7 @@ select {
     appearance: none;
 }
 
-#to-do-completion-input {
+/* #to-do-completion-input {
 
     width: 0.7rem;
     height: 0.7rem;
@@ -57,7 +57,7 @@ select {
     border-radius: 0.2rem;
 
     appearance: none;
-}
+} */
 
 .project-to-dos form {
     margin-top: 0.5rem;
