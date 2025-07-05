@@ -47,6 +47,8 @@ select {
     padding-left: 0.3rem;
 
     appearance: none;
+
+    font-size: 0.95rem;
 }
 
 /* #to-do-completion-input {
@@ -74,5 +76,5 @@ select {
     padding-right: 5px;
 
     font-weight: 500;
-
+    font-size: 0.95rem;
 }
