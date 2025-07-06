@@ -16,7 +16,7 @@ export class ToDoItem{
     constructor(title, description, dueDate, priority) {
         this.title = title;
         this.description = description;
-        this.dueDate = formatDistanceToNowStrict(new Date(dueDate));
+        this.dueDate = formatDistanceToNowStrict(dueDate);
         this.priority = priority;
         this.completion = "No";
     }
