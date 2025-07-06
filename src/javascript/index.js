@@ -11,10 +11,10 @@ createToDoList();
 createToDoList("Family");
 createToDoList("Travel");
 
-addToDoItem("Cleaning", "Weekly Chores", "22-22-22",3, "Family");
-addToDoItem("zapp", "Weekly Chores", "22-22-22", 3, "Family");
-addToDoItem("Packing", "Weekly Chores", "22-22-22", 5, "Travel");
-addToDoItem("Finish Project", "To Do List", "01-22", 5);
+addToDoItem("Cleaning", "Weekly Chores", "2022-02-22",3, "Family");
+addToDoItem("zapp", "Weekly Chores", "2022-01-12", 3, "Family");
+addToDoItem("Packing", "Weekly Chores", "2022-12-22", 5, "Travel");
+addToDoItem("Finish Project", "To Do List", "2025-07-08", 5);
 
 
 createDOM();
