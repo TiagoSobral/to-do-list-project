@@ -1,6 +1,7 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
 import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
-import { addToDoItem, createToDoList } from "./to-do-list-action";
+import { allProjects } from "./to-do-list";
+import { addToDoItem, createToDoList, findToDos, removeToDo } from "./to-do-list-action";
  
 
 
@@ -18,9 +19,9 @@ export function listenerProjectExpand() {
             
             showProject(projectTitle);
             
-            btnAddToDo();
+            // btnAddToDo();
 
-            addTaskListener();
+            // addTaskListener();
         })
     })
 
@@ -60,7 +61,7 @@ function inputListener() {
 
             arrayProjectsToDOM();
 
-            listenerProjectExpand();
+            // listenerProjectExpand();
 
         }
 
@@ -113,13 +114,38 @@ function btnAddListener() {
 
         arrayProjectsToDOM();
 
-        addProjectListener();
+        // addProjectListener();
 
         showProject(projectTitle);
 
-        btnAddToDo()
+        // btnAddToDo()
 
-        addTaskListener();
+        // addTaskListener();
+
+    })
+
+}
+
+
+export function trashListener() {
+
+
+    const trash = document.querySelectorAll(".delete-to-do");
+
+    trash.forEach((trashIcon) => {
+
+        const projectTitle = document.querySelector(".project-title").textContent;
+        const lineToErase = trashIcon.parentElement;
+        const toDoName = lineToErase.firstChild.textContent
+
+        trashIcon.addEventListener("click", () => {
+
+            removeToDo(toDoName, projectTitle);
+            lineToErase.remove();
+
+
+
+        })
 
     })
 
