@@ -1,3 +1,5 @@
+import { btnAddToDo } from "./DOM-creation";
+import { addProjectListener, addTaskListener, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
 import { findProject } from "./to-do-list-action";
 
@@ -35,6 +37,8 @@ export function arrayProjectsToDOM() {
     
     }
 
+    addProjectListener();
+    listenerProjectExpand();
 }
 
 
@@ -63,6 +67,8 @@ export function showProject(name = "Main") {
         
         
         const ul = document.createElement("ul");
+            const trash = document.createElement("li");
+                trash.setAttribute("class", "delete-to-do");
 
         projectToDos.appendChild(ul);
 
@@ -79,8 +85,12 @@ export function showProject(name = "Main") {
 
         }
 
-
+        ul.appendChild(trash);
     }
 
+
+    trashListener();
+    btnAddToDo();
+    addTaskListener();
 }
 
