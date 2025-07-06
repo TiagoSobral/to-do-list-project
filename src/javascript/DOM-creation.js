@@ -5,6 +5,8 @@ const body = document.querySelector("body");
 
 let btnTitles = ["Add Project", "Today", "Upcoming", "Completed"]
 
+
+
 export function createDOM() {
 
     mainElements();
@@ -17,7 +19,7 @@ export function createDOM() {
 
     addSpans();
 
-    btnAddToDo();
+    // btnAddToDo();
 
 }
 
@@ -76,6 +78,8 @@ function projectsTabElements() {
 }
 
 
+
+
 function projectContentElements() {
 
     const projectContent = document.querySelector("section");
@@ -106,6 +110,8 @@ export function btnAddToDo() {
     projectShowing.appendChild(addToDo);
     addToDo.appendChild(span);
 }
+
+
 
 function addSpans() {
 
@@ -172,10 +178,10 @@ export function addInputsForToDos() {
 
 
             const inputDueDate = document.createElement("input")
-                inputDueDate.setAttribute("type", "tell");
+                inputDueDate.setAttribute("type", "date");
                 inputDueDate.setAttribute("id", "to-do-due-date-input");
-                inputDueDate.setAttribute("placeholder", "DD-MM");
-                inputDueDate.setAttribute("pattern", "(0[0-9]|[12][0-9]|3[0-1])-(0[1-9]|[1][0-2])");
+                // inputDueDate.setAttribute("placeholder", "DD-MM");
+                // inputDueDate.setAttribute("pattern", "(0[0-9]|[12][0-9]|3[0-1])-(0[1-9]|[1][0-2])");
             
 
 
@@ -234,6 +240,8 @@ export function removeProjectContentDOM() {
     btnAddTask.forEach((element) => element.remove());
 
 }
+
+
 
 export function removeProjectListDOM() {
 
