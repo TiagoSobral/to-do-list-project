@@ -7,7 +7,7 @@ h5 {
 button:first-child span::before,
 button:nth-child(2) span::before,
 button:nth-child(3) span::before,
-button:last-child span::before,
+.filter-area button:last-child span::before,
 h5::before,
 .add-todo span::before {
 
@@ -26,7 +26,7 @@ h5::before,
 button:first-child span::before,
 button:nth-child(2) span::before,
 button:nth-child(3) span::before,
-button:last-child span::before,
+.filter-area button:last-child span::before,
 .add-todo span::before {
 
     top: 0;
@@ -54,7 +54,7 @@ button:nth-child(3) span::before {
     background-image: url("../svgs/calendar-month.svg");
 }
 
-button:last-child span::before {
+.filter-area button:last-child span::before {
     background-image: url("../svgs/complete.svg");
 }
 
@@ -63,3 +63,9 @@ h5::before {
 }
 
 
+.delete-to-do {
+
+  background-image: url("../svgs/trash.svg");
+  background-size: contain;
+
+}

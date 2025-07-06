@@ -78,3 +78,15 @@ select {
     font-weight: 500;
     font-size: 0.95rem;
 }
+
+.delete-to-do:active {
+
+    scale: 0.9;
+
+}
+
+.delete-to-do:hover {
+
+    scale: 1.05;
+
+}
