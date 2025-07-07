@@ -101,6 +101,21 @@ body {
   font-weight: bold;
 }
 
+.wrapper-title {
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.del-project {
+    width: 22px;
+    height: 22px;
+
+
+    align-self: center;
+
+}
 
 h5 {
 
@@ -194,13 +209,32 @@ li {
 
 }
 
+.checkbox {
+  position: relative;
 
+  width: 1rem;
+  height: 1rem;
 
-button, 
-h5, 
-li {
+  border: 1px solid rgb(163, 29, 29);
 
-  padding-left: 5px;
+  border-radius: 1rem;
+  appearance: none;
+
+}
+
+.checkbox:checked:after {
+  position: absolute;
+
+  content: "";
+  width: 0.70rem;
+  height: 0.70rem;
+
+  border-radius: 2rem;
+
+  background-color: rgb(113, 28, 28);
+
+  left: 1.2px;
+  top: 1.5px;
 
 }
 
@@ -211,18 +245,12 @@ li {
 
 }
 
-.wrapper-title {
 
-  display: flex;
-  flex-direction: row;
+button, 
+h5, 
+li {
 
-}
-
-.del-project {
-    width: 22px;
-    height: 22px;
-
-
-    align-self: center;
+  padding-left: 5px;
 
 }
+
