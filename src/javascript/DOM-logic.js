@@ -1,7 +1,7 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
 import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
 import { allProjects } from "./to-do-list";
-import { addToDoItem, createToDoList, findToDos, removeToDo } from "./to-do-list-action";
+import { addToDoItem, createToDoList, findToDos, removeProject, removeToDo } from "./to-do-list-action";
  
 
 
@@ -18,10 +18,7 @@ export function listenerProjectExpand() {
             removeProjectContentDOM();
             
             showProject(projectTitle);
-            
-            // btnAddToDo();
 
-            // addTaskListener();
         })
     })
 
@@ -61,7 +58,6 @@ function inputListener() {
 
             arrayProjectsToDOM();
 
-            // listenerProjectExpand();
 
         }
 
@@ -114,13 +110,7 @@ function btnAddListener() {
 
         arrayProjectsToDOM();
 
-        // addProjectListener();
-
         showProject(projectTitle);
-
-        // btnAddToDo()
-
-        // addTaskListener();
 
     })
 
@@ -149,4 +139,26 @@ export function trashListener() {
 
     })
 
+}
+
+export function delProjectListener() {
+
+    const trashIcons = document.querySelectorAll(".del-project");
+
+    trashIcons.forEach((trash) => {
+
+        trash.addEventListener("click", () => {
+
+            const parentNode = trash.parentElement;
+
+            const parentNodeList = parentNode.nextElementSibling;
+
+        parentNode.remove();
+        parentNodeList.remove();
+
+        removeProject(trash.dataset.indexnumber);
+
+        });
+
+    })
 }
