@@ -1,5 +1,4 @@
-import { se } from "date-fns/locale";
-import { btnAddToDo } from "./DOM-creation";
+import { btnAddToDo, toDoElements } from "./DOM-creation";
 import { addProjectListener, addTaskListener, btnCompleteListener, delProjectListener, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
 import { findProject } from "./to-do-list-action";
@@ -58,64 +57,47 @@ export function arrayProjectsToDOM() {
 export function showProject(name = "Main") {
 
 
-    const foundProject = findProject(name).nameProject;
 
-    let toDosOfProject = foundProject.toDoArray;
+    const bring = findProject(name).nameProject;
 
-    
+    let toDosOfProject = bring.toDoArray;
+
     const projectTitle = document.querySelector(".project-title");
-        projectTitle.textContent = foundProject.projectName;
+        projectTitle.textContent = bring.projectName;
     
     const projectToDos = document.querySelector(".project-to-dos");
 
-
    
     toDosOfProject.forEach((toDo) => {
+        // debugger
 
-        
-        let arrayOfInfoNames = Object.keys(toDo);
+        let toDoValues = Object.values(toDo);
 
-        let arrayOfInfoValues = Object.values(toDo);
-
-        
-        
-        const ul = document.createElement("ul");
-            ul.setAttribute("data-project-name", `${foundProject.projectName}`);
-            ul.setAttribute("data-todo-name", `${toDo.title}`)
+        let toDoKeys = Object.keys(toDo);
 
 
-            const trash = document.createElement("li");
-                trash.setAttribute("class", "delete-to-do");
-
-            const btnStatus = document.createElement("input");
-                btnStatus.setAttribute("type", "checkbox");
-                btnStatus.setAttribute("name", "completed");
-                btnStatus.setAttribute("value", "Yes");
-                btnStatus.setAttribute("class", "checkbox");
-
-        projectToDos.appendChild(ul);
-
+        toDoElements();
 
        
-        for (let i = 0 ; i < arrayOfInfoValues.length ; i++) {
+        const toDoParentElement = projectToDos.querySelector("ul:last-child");
+            toDoParentElement.setAttribute("data-project-name", `${bring.projectName}`);
+            toDoParentElement.setAttribute("data-todo-name", `${toDo.title}`);
+            const toDoInfo = toDoParentElement.querySelectorAll("li");
 
-            const li = document.createElement("li");
-                li.setAttribute("class", `${arrayOfInfoNames[i]}`);
-                li.textContent = arrayOfInfoValues[i];
+       
+        for (let index = 0; index < 5; index++) {
 
-
-            ul.appendChild(li);
+            toDoInfo[index].setAttribute("class", `${toDoKeys[index]}`);
+            toDoInfo[index].textContent = toDoValues[index];
 
 
         }
 
-        ul.appendChild(btnStatus);
-        ul.appendChild(trash);
     })
 
 
-    trashListener();
     btnAddToDo();
+    trashListener();
     addTaskListener();
     btnCompleteListener();
 }
