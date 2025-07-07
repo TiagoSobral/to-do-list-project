@@ -210,3 +210,19 @@ li {
   height: 1.3rem;
 
 }
+
+.wrapper-title {
+
+  display: flex;
+  flex-direction: row;
+
+}
+
+.del-project {
+    width: 22px;
+    height: 22px;
+
+
+    align-self: center;
+
+}

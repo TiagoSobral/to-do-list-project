@@ -63,6 +63,18 @@ h5::before {
 }
 
 
+.del-project {
+
+    background-image: url("../svgs/trash.svg");
+    background-size: contain;
+
+}
+
+.del-project:hover {
+    scale: 1.1;
+}
+
+
 .delete-to-do {
 
   background-image: url("../svgs/trash.svg");

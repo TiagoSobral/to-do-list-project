@@ -51,16 +51,6 @@ select {
     font-size: 0.95rem;
 }
 
-/* #to-do-completion-input {
-
-    width: 0.7rem;
-    height: 0.7rem;
-    margin-right: 0.2rem;
-
-    border-radius: 0.2rem;
-
-    appearance: none;
-} */
 
 .project-to-dos form {
     margin-top: 0.5rem;
@@ -88,5 +78,11 @@ select {
 .delete-to-do:hover {
 
     scale: 1.05;
+
+}
+
+.del-project:active {
+
+    scale: 0.95;
 
 }
