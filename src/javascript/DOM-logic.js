@@ -1,7 +1,6 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
-import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
-import { allProjects } from "./to-do-list";
-import { addToDoItem, createToDoList, findToDos, removeProject, removeToDo } from "./to-do-list-action";
+import { addInputForNameProject, addInputsForToDos, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
+import { addToDoItem, changeCompletionStatus, createToDoList, removeProject, removeToDo } from "./to-do-list-action";
  
 
 
@@ -124,9 +123,11 @@ export function trashListener() {
 
     trash.forEach((trashIcon) => {
 
-        const projectTitle = document.querySelector(".project-title").textContent;
+
+        const projectTitle = trashIcon.parentElement.dataset.projectName;
+        const toDoName = trashIcon.parentElement.dataset.todoName;
+
         const lineToErase = trashIcon.parentElement;
-        const toDoName = lineToErase.firstChild.textContent
 
         trashIcon.addEventListener("click", () => {
 
@@ -161,4 +162,34 @@ export function delProjectListener() {
         });
 
     })
+}
+
+export function btnCompleteListener() {
+
+    const checkboxes = document.querySelectorAll(".checkbox");
+
+    checkboxes.forEach((checkbox) => {
+        
+        checkbox.addEventListener("click", () => {
+
+            const projectName = checkbox.parentElement.dataset.projectName;
+            const todoName = checkbox.parentElement.dataset.todoName;
+
+            const completeStatus = checkbox.previousElementSibling;
+            const status =  completeStatus.textContent;
+
+        if (status === "No") {
+
+            changeCompletionStatus("Yes", projectName, todoName);
+            completeStatus.textContent = "Yes";
+
+        }
+        else {
+            changeCompletionStatus("No", projectName, todoName);
+            completeStatus.textContent = "No";
+        }
+
+
+    })
+})
 }
