@@ -18,7 +18,6 @@ addToDoItem("Finish Project", "To Do List", "2025-07-08", "High");
 
 
 createDOM();
-listenerProjectExpand();
 
 console.log(allProjects);
 
