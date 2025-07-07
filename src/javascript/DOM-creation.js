@@ -93,6 +93,51 @@ function projectContentElements() {
 
 }
 
+export function toDoElements() {
+
+    const projectToDos = document.querySelector(".project-to-dos");
+            
+        const ul = document.createElement("ul");
+            // ul.setAttribute("data-project-name", `${projectName}`);
+            // ul.setAttribute("data-todo-name", `${toDo.title}`)
+
+            const edit = document.createElement("div");
+                edit.setAttribute("class", "edit-todo");
+
+
+            const trash = document.createElement("li");
+                trash.setAttribute("class", "delete-to-do");
+
+            const btnStatus = document.createElement("input");
+                btnStatus.setAttribute("type", "checkbox");
+                btnStatus.setAttribute("name", "completed");
+                btnStatus.setAttribute("value", "Yes");
+                btnStatus.setAttribute("class", "checkbox");
+
+        projectToDos.appendChild(ul);
+
+
+       
+        for (let i = 0 ; i < 5 ; i++) {
+
+            const li = document.createElement("li");
+                // li.setAttribute("class", `${arrayOfInfoNames[i]}`);
+                // li.textContent = arrayOfInfoValues[i];
+
+
+            ul.appendChild(li);
+
+
+        }
+
+        ul.appendChild(btnStatus);
+        ul.appendChild(edit);
+        ul.appendChild(trash);
+
+        // btnAddToDo();
+    }
+
+
 
 
 export function btnAddToDo() {
@@ -106,6 +151,7 @@ export function btnAddToDo() {
 
     projectShowing.appendChild(addToDo);
     addToDo.appendChild(span);
+
 }
 
 
