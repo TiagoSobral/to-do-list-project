@@ -238,7 +238,8 @@ li {
 
 }
 
-.delete-to-do {
+.delete-to-do, 
+.edit-todo {
  
   width: 1.3rem;
   height: 1.3rem;

@@ -81,3 +81,13 @@ h5::before {
   background-size: contain;
 
 }
+
+.edit-todo {
+
+
+    background-image: url("../svgs/edit.svg");
+    background-size: contain;
+
+    scale: 0.9;
+
+}
