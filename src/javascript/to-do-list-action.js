@@ -55,18 +55,18 @@ function findIndex(selectProject, selectToDo) {
     
     let toDoIndex;
     
-    for (let project of allProjects) {
+    allProjects.forEach((project, indexProject) => {
         
-        for (let toDoItem of project.toDoArray) {
+        project.toDoArray.forEach((toDo, indexToDo) =>  {
             
-            if (project.projectName === selectProject && toDoItem.title === selectToDo) {
+            if (project.projectName === selectProject && toDo.title === selectToDo) {
                
-                projectIndex = allProjects.indexOf(project);
+                projectIndex = indexProject;
                 
-                toDoIndex = project.toDoArray.indexOf(toDoItem);
+                toDoIndex = indexToDo;
             }
-        }
-    }
+        })
+    })
     return {projectIndex, toDoIndex};
 }
 
@@ -99,6 +99,13 @@ export function removeToDo(selectToDo, selectProject = defaultValue) {
     let toDosList = chosenProject.toDoArray;
 
     toDosList.splice(bring.toDoIndex,1);
+
+}
+
+
+export function removeProject(projectIndex) {
+
+    allProjects.splice(projectIndex,1);
 
 }
 
