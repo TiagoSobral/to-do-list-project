@@ -1,5 +1,6 @@
+import { se } from "date-fns/locale";
 import { btnAddToDo } from "./DOM-creation";
-import { addProjectListener, addTaskListener, delProjectListener, listenerProjectExpand, trashListener } from "./DOM-logic";
+import { addProjectListener, addTaskListener, btnCompleteListener, delProjectListener, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
 import { findProject } from "./to-do-list-action";
 
@@ -57,19 +58,19 @@ export function arrayProjectsToDOM() {
 export function showProject(name = "Main") {
 
 
-    const chosenProject = findProject(name).chosenProject;
+    const foundProject = findProject(name).nameProject;
 
-    let toDosOfProject = chosenProject.toDoArray;
+    let toDosOfProject = foundProject.toDoArray;
 
     
     const projectTitle = document.querySelector(".project-title");
-        projectTitle.textContent = chosenProject.projectName;
+        projectTitle.textContent = foundProject.projectName;
     
     const projectToDos = document.querySelector(".project-to-dos");
 
 
    
-    for (let toDo of toDosOfProject) {
+    toDosOfProject.forEach((toDo) => {
 
         
         let arrayOfInfoNames = Object.keys(toDo);
@@ -79,8 +80,18 @@ export function showProject(name = "Main") {
         
         
         const ul = document.createElement("ul");
+            ul.setAttribute("data-project-name", `${foundProject.projectName}`);
+            ul.setAttribute("data-todo-name", `${toDo.title}`)
+
+
             const trash = document.createElement("li");
                 trash.setAttribute("class", "delete-to-do");
+
+            const btnStatus = document.createElement("input");
+                btnStatus.setAttribute("type", "checkbox");
+                btnStatus.setAttribute("name", "completed");
+                btnStatus.setAttribute("value", "Yes");
+                btnStatus.setAttribute("class", "checkbox");
 
         projectToDos.appendChild(ul);
 
@@ -89,20 +100,23 @@ export function showProject(name = "Main") {
         for (let i = 0 ; i < arrayOfInfoValues.length ; i++) {
 
             const li = document.createElement("li");
-                li.setAttribute("class", `${arrayOfInfoNames[i]}`)
+                li.setAttribute("class", `${arrayOfInfoNames[i]}`);
                 li.textContent = arrayOfInfoValues[i];
+
 
             ul.appendChild(li);
 
 
         }
 
+        ul.appendChild(btnStatus);
         ul.appendChild(trash);
-    }
+    })
 
 
     trashListener();
     btnAddToDo();
     addTaskListener();
+    btnCompleteListener();
 }
 
