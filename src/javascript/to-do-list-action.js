@@ -32,19 +32,19 @@ export function addToDoItem(title, description, dueDate, priority, selectProject
 
 export function findProject(selectProject = "Main") {
 
-    let chosenProject;
+    let nameProject;
 
-    for (let project of allProjects) {
+    allProjects.forEach((project) => {
 
         if (project.projectName === selectProject) {
 
-            chosenProject = project;
+            nameProject = project;
 
         }
 
-    }
+    })
 
-    return { chosenProject };
+    return { nameProject };
 }
 
 
