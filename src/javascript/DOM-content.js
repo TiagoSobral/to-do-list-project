@@ -1,5 +1,5 @@
 import { btnAddToDo } from "./DOM-creation";
-import { addProjectListener, addTaskListener, listenerProjectExpand, trashListener } from "./DOM-logic";
+import { addProjectListener, addTaskListener, delProjectListener, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
 import { findProject } from "./to-do-list-action";
 
@@ -8,37 +8,49 @@ export function arrayProjectsToDOM() {
     const displayArea = document.querySelector(".display-area");
 
    
-    for (let project of allProjects) {
+    allProjects.forEach((project, indexProject) => {
        
        
         const projectName = project.projectName;
         
         const projectToDoArray = project.toDoArray;
 
+
+        const wrapperTitle = document.createElement("div");
+            wrapperTitle.setAttribute("class", "wrapper-title");
+
         const projectTitle = document.createElement("h5");
             projectTitle.textContent = projectName;
             projectTitle.setAttribute("class", "project-list-title");
+            projectTitle.setAttribute("data-indexProject", `${indexProject}`)
+        
+        const delProject = document.createElement("div");
+            delProject.setAttribute("class", "del-project");
 
         const ul = document.createElement("ul");
 
 
         
-        for (let toDo of projectToDoArray) {
+        projectToDoArray.forEach((toDo) => {
 
             const li = document.createElement("li");
                 li.textContent = toDo.title;
             
             ul.appendChild(li);
 
-        }
+        })
     
-        displayArea.appendChild(projectTitle);
+        displayArea.appendChild(wrapperTitle);
+        wrapperTitle.appendChild(projectTitle);
+        wrapperTitle.appendChild(delProject);
         displayArea.appendChild(ul);
     
-    }
+    })
 
     addProjectListener();
     listenerProjectExpand();
+    delProjectListener();
+
 }
 
 
