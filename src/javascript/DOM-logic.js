@@ -1,5 +1,5 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
-import { addInputForNameProject, addInputsForToDos, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
+import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
 import { addToDoItem, changeCompletionStatus, createToDoList, removeProject, removeToDo } from "./to-do-list-action";
  
 
@@ -88,7 +88,7 @@ function btnAddListener() {
 
         const projectTitle = document.querySelector(".project-title").textContent;
 
-        const todoInputs = document.querySelectorAll(".project-to-dos input")
+        const todoInputs = document.querySelectorAll(".project-to-dos form input");
 
         const todoSelect = document.querySelector("select");
 
