@@ -132,3 +132,20 @@ function sortBasedOnCompletion(array) {
 });
 
 }
+
+
+export function gatherToDos() {
+
+    let arrayOfGathered = [];
+
+    allProjects.forEach((project) => {
+        
+        project.toDoArray.forEach((toDo) => {
+
+                arrayOfGathered.push(toDo);
+            
+        })})
+
+      return { arrayOfGathered } 
+}
+
