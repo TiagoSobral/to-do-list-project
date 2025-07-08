@@ -1,4 +1,5 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
+import { filterListener } from "./DOM-logic";
 
 const body = document.querySelector("body");
 
@@ -17,6 +18,8 @@ export function createDOM() {
     showProject();
 
     addSpans();
+
+    filterListener();
 
 }
 
@@ -98,8 +101,6 @@ export function toDoElements() {
     const projectToDos = document.querySelector(".project-to-dos");
             
         const ul = document.createElement("ul");
-            // ul.setAttribute("data-project-name", `${projectName}`);
-            // ul.setAttribute("data-todo-name", `${toDo.title}`)
 
             const edit = document.createElement("div");
                 edit.setAttribute("class", "edit-todo");
@@ -121,8 +122,7 @@ export function toDoElements() {
         for (let i = 0 ; i < 5 ; i++) {
 
             const li = document.createElement("li");
-                // li.setAttribute("class", `${arrayOfInfoNames[i]}`);
-                // li.textContent = arrayOfInfoValues[i];
+                li.setAttribute("data-class", "to-do-item");
 
 
             ul.appendChild(li);
@@ -196,7 +196,7 @@ export function addInputForNameProject() {
 
 
 
-export function addInputsForToDos() {
+export function addInputsForToDos(title = "", description = "", dueDate = "", option) {
 
     const projectToDos = document.querySelector(".project-to-dos");
 
@@ -209,25 +209,28 @@ export function addInputsForToDos() {
             const inputTitle = document.createElement("input");
                 inputTitle.setAttribute("type", "text");
                 inputTitle.setAttribute("id", "to-do-title-input");
-                inputTitle.setAttribute("minlength", "2")
+                inputTitle.setAttribute("minlength", "2");
+                inputTitle.setAttribute("value", `${title}`);
 
 
 
             const inputDescription = document.createElement("input")
                 inputDescription.setAttribute("type", "text");
                 inputDescription.setAttribute("id", "to-do-description-input");
-                inputTitle.setAttribute("minlength", "2")
+                inputDescription.setAttribute("minlength", "2");
+                inputDescription.setAttribute("value", `${description}`);
             
 
 
             const inputDueDate = document.createElement("input")
                 inputDueDate.setAttribute("type", "date");
                 inputDueDate.setAttribute("id", "to-do-due-date-input");
+                inputDueDate.setAttribute("value", `${dueDate}`);
             
 
 
             const inputPriority = document.createElement("select")
-                inputPriority .setAttribute("id", "to-do-priority-input");
+                inputPriority.setAttribute("id", "to-do-priority-input");
                 
 
                 const optionLow = document.createElement("option");
@@ -259,7 +262,6 @@ export function addInputsForToDos() {
             ul.appendChild(inputDescription);
             ul.appendChild(inputDueDate);
             ul.appendChild(inputPriority);
-
                 inputPriority.appendChild(optionHigh);
                 inputPriority.appendChild(optionMedium);
                 inputPriority.appendChild(optionLow);
