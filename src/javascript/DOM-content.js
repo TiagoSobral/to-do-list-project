@@ -1,5 +1,5 @@
 import { btnAddToDo, toDoElements } from "./DOM-creation";
-import { addProjectListener, addTaskListener, btnCompleteListener, delProjectListener, listenerProjectExpand, trashListener } from "./DOM-logic";
+import { addProjectListener, addTaskListener, btnCompleteListener, delProjectListener, editToDo, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
 import { findProject } from "./to-do-list-action";
 
@@ -69,7 +69,6 @@ export function showProject(name = "Main") {
 
    
     toDosOfProject.forEach((toDo) => {
-        // debugger
 
         let toDoValues = Object.values(toDo);
 
@@ -96,9 +95,34 @@ export function showProject(name = "Main") {
     })
 
 
+    editToDo();
     btnAddToDo();
     trashListener();
     addTaskListener();
     btnCompleteListener();
 }
 
+export function showFilteredToDos(arrayOfToDos) {
+
+    const projectToDos = document.querySelector(".project-to-dos");
+
+    let bla = arrayOfToDos;
+
+    arrayOfToDos.forEach((toDo) => {
+
+        let value =  Object.values(toDo);
+
+        toDoElements();
+
+        const li = projectToDos.querySelectorAll("ul:last-child li");
+
+        for (let i = 0; i < value.length ; i++) {
+
+            li[i].textContent = value[i];
+
+        }
+
+    })
+   
+
+}
