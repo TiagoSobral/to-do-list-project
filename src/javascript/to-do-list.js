@@ -1,5 +1,3 @@
-import { format, formatDistanceToNowStrict } from "date-fns";
-
 export let allProjects = [];
 
 export class Project {
@@ -16,7 +14,7 @@ export class ToDoItem{
     constructor(title, description, dueDate, priority) {
         this.title = title;
         this.description = description;
-        this.dueDate = formatDistanceToNowStrict(dueDate);
+        this.dueDate = dueDate;
         this.priority = priority;
         this.completion = "No";
     }
