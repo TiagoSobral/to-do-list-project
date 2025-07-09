@@ -1,7 +1,7 @@
 import { btnAddToDo, toDoElements } from "./DOM-creation";
 import { addProjectListener, addTaskListener, btnCompleteListener, delProjectListener, editToDo, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
-import { findProject } from "./to-do-list-action";
+import { findProject, sort} from "./to-do-list-action";
 
 export function arrayProjectsToDOM() {
 
@@ -14,6 +14,8 @@ export function arrayProjectsToDOM() {
         const projectName = project.projectName;
         
         const projectToDoArray = project.toDoArray;
+
+        sort(projectToDoArray, "dueDate");
 
 
         const wrapperTitle = document.createElement("div");
@@ -79,6 +81,7 @@ export function showProject(name = "Main") {
 
        
         const toDoParentElement = projectToDos.querySelector("ul:last-child");
+            toDoParentElement.setAttribute("priority", `${toDo.priority}`)
             toDoParentElement.setAttribute("data-project-name", `${bring.projectName}`);
             toDoParentElement.setAttribute("data-todo-name", `${toDo.title}`);
             const toDoInfo = toDoParentElement.querySelectorAll("li");
@@ -106,7 +109,6 @@ export function showFilteredToDos(arrayOfToDos) {
 
     const projectToDos = document.querySelector(".project-to-dos");
 
-    let bla = arrayOfToDos;
 
     arrayOfToDos.forEach((toDo) => {
 
