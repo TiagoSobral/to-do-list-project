@@ -206,7 +206,7 @@ export function btnCompleteListener() {
 
     const checkboxes = document.querySelectorAll(".checkbox");
 
-    const projectToDos = document.querySelector(".project-to-dos");
+    let nextNodeBeforeChange;
 
     const lastUl = document.querySelector(".project-to-dos ul:last-of-type");
 
@@ -228,7 +228,7 @@ export function btnCompleteListener() {
 
             changeCompletionStatus("Yes", projectName, todoName);
             completeStatus.textContent = "Yes";
-            completeStatus.setAttribute("completion", "Yes");
+            checkbox.setAttribute("checked", "Yes");
             lastUl.after(parentNode);
 
         }
@@ -236,7 +236,7 @@ export function btnCompleteListener() {
         else {
             changeCompletionStatus("No", projectName, todoName);
             completeStatus.textContent = "No";
-            completeStatus.setAttribute("completion", "No");
+            checkbox.setAttribute("checked", false);
             nextNode.before(parentNode);
         }
 

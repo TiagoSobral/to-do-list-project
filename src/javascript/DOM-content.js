@@ -84,7 +84,11 @@ export function showProject(name = "Main") {
             toDoParentElement.setAttribute("priority", `${toDo.priority}`)
             toDoParentElement.setAttribute("data-project-name", `${bring.projectName}`);
             toDoParentElement.setAttribute("data-todo-name", `${toDo.title}`);
+            
             const toDoInfo = toDoParentElement.querySelectorAll("li");
+        
+        const checkbox = toDoParentElement.querySelector("input[type='checkbox']");
+            checkbox.setAttribute("checked", `${toDo.completion}`);
 
        
         for (let index = 0; index < 5; index++) {

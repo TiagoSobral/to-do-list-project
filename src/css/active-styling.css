@@ -78,7 +78,7 @@ select {
 }
 
 
-.checkbox:checked:after {
+.checkbox[checked="Yes"]::after {
   position: absolute;
 
   content: "";
