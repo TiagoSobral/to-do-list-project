@@ -56,6 +56,44 @@ select {
     margin-top: 0.5rem;
 }
 
+[priority = "High"] {
+
+    background-color: rgb(243, 228, 199);
+
+
+}
+
+[priority = "Medium"] {
+
+    background-color: rgba(243, 228, 199, 0.635);
+
+
+}
+
+[priority = "Low"] {
+
+    background-color: rgba(243, 228, 199, 0.247);
+
+
+}
+
+
+.checkbox:checked:after {
+  position: absolute;
+
+  content: "";
+  width: 0.70rem;
+  height: 0.70rem;
+
+  border-radius: 2rem;
+
+  background-color: rgb(113, 28, 28);
+
+  left: 1.5px;
+  top: 1.5px;
+
+}
+
 #btn-submit {
 
     width: 3rem;
