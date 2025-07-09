@@ -82,7 +82,7 @@ export function changeCompletionStatus(answer, selectProject, selectToDo) {
 
     toDoOfChosen.taskStatus(answer);
 
-    sortBasedOnCompletion(arrayOfToDos);
+    sort(arrayOfToDos, "Completion");
 
 
 }
@@ -111,24 +111,41 @@ export function removeProject(projectIndex) {
 
 
 
-function sortBasedOnCompletion(array) {
+export function sort(array, sortBy) {
+
+    let comparatorA;
+
+    let comparatorB;
 
 
     array.sort((a, b) => {
 
-    let completionA = a.completion.toLowerCase();
+        if (sortBy === "dueDate") {
 
-    let completionB = b.completion.toLowerCase();
+            comparatorA = a.dueDate.toLowerCase();
 
-    if (completionA > completionB) {
-        return 1;
-    }
+            comparatorB = b.dueDate.toLowerCase();
 
-    if (completionA < completionB) {
-        return -1;
-    }
+        }
+        else {
 
-    return 0;
+            comparatorA = a.completion.toLowerCase();
+
+            comparatorB = b.completion.toLowerCase();
+
+        }
+
+
+
+        if (comparatorA > comparatorB) {
+            return 1;
+        }
+
+        if (comparatorA < comparatorB) {
+            return -1;
+        }
+
+        return 0;
 });
 
 }
