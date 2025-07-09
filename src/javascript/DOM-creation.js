@@ -36,6 +36,7 @@ function mainElements() {
 
 }
 
+    // LEFT SECTION 
 
 function projectsTabElements() {
 
@@ -79,6 +80,56 @@ function projectsTabElements() {
 
 
 
+function addSpans() {
+
+    const buttons = document.querySelectorAll("button");
+    
+
+    for (let i = 0; i < buttons.length; i++) {
+
+        const span = document.createElement("span");
+
+        buttons[i].append(span);
+
+        span.textContent = `${btnTitles[i]}`;
+
+    }
+
+}
+
+
+export function removeProjectListDOM() {
+
+    const projectList = document.querySelectorAll(".display-area > *");
+
+    projectList.forEach((element) => element.remove());
+
+
+}
+
+
+export function addInputForNameProject() {
+
+    const projectList = document.querySelector(".display-area");
+
+    const h5 = document.createElement("h5");
+        const form = document.createElement("form");
+            const inputName = document.createElement("input");
+                inputName.setAttribute("type", "text");
+                inputName.setAttribute("id", "project-name-input");
+
+
+    h5.setAttribute("class", "input-name");
+    
+    projectList.appendChild(h5);
+        h5.appendChild(form);
+            form.appendChild(inputName);
+
+}
+
+
+
+        // RIGHT SECTION
 
 function projectContentElements() {
 
@@ -95,6 +146,7 @@ function projectContentElements() {
     projectContent.appendChild(projectToDos);
 
 }
+
 
 export function toDoElements() {
 
@@ -134,10 +186,7 @@ export function toDoElements() {
         ul.appendChild(edit);
         ul.appendChild(trash);
 
-        // btnAddToDo();
     }
-
-
 
 
 export function btnAddToDo() {
@@ -151,46 +200,6 @@ export function btnAddToDo() {
 
     projectShowing.appendChild(addToDo);
     addToDo.appendChild(span);
-
-}
-
-
-
-function addSpans() {
-
-    const buttons = document.querySelectorAll("button");
-    
-
-    for (let i = 0; i < buttons.length; i++) {
-
-        const span = document.createElement("span");
-
-        buttons[i].append(span);
-
-        span.textContent = `${btnTitles[i]}`;
-
-    }
-
-}
-
-
-
-export function addInputForNameProject() {
-
-    const projectList = document.querySelector(".display-area");
-
-    const h5 = document.createElement("h5");
-        const form = document.createElement("form");
-            const inputName = document.createElement("input");
-                inputName.setAttribute("type", "text");
-                inputName.setAttribute("id", "project-name-input");
-
-
-    h5.setAttribute("class", "input-name");
-    
-    projectList.appendChild(h5);
-        h5.appendChild(form);
-            form.appendChild(inputName);
 
 }
 
@@ -285,15 +294,6 @@ export function removeProjectContentDOM() {
 }
 
 
-
-export function removeProjectListDOM() {
-
-    const projectList = document.querySelectorAll(".display-area > *");
-
-    projectList.forEach((element) => element.remove());
-
-
-}
 
 
 
