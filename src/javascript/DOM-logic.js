@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import { arrayProjectsToDOM, showFilteredToDos, showProject } from "./DOM-content";
 import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM, toDoElements } from "./DOM-creation";
 import { addToDoItem, changeCompletionStatus, createToDoList, gatherToDos, removeProject, removeToDo } from "./to-do-list-action";
+import { de } from "date-fns/locale";
  
 
         // LEFT SIDE
@@ -112,13 +113,8 @@ export function delProjectListener() {
 }
 
 function toDosByFilter(projectKey) {
-    // debugger;
 
     const toDos = gatherToDos().arrayOfGathered;
-
-    const btnToday = document.querySelector(".today");
-
-    const btnTitle = btnToday.querySelector("span");
 
     const projectTitle = document.querySelector(".project-title");
 
@@ -186,6 +182,8 @@ export function editToDo() {
 
 };
 
+    // GETS THE VALUE OF THE OPTION TO BE ABLE TO SET IT AS A DEFAULT VALUE WHEN 
+    // EDIT IS CLICKED.
 
 function getPreviousPriorityValue(previousOptionValue) {
 
@@ -201,15 +199,24 @@ function getPreviousPriorityValue(previousOptionValue) {
 
 };
 
+        // COMPLETE CIRCLE ON EVERY TO DO ITEM
 
 
 export function btnCompleteListener() {
 
     const checkboxes = document.querySelectorAll(".checkbox");
 
+    const projectToDos = document.querySelector(".project-to-dos");
+
+    const lastUl = document.querySelector(".project-to-dos ul:last-of-type");
+
     checkboxes.forEach((checkbox) => {
         
         checkbox.addEventListener("click", () => {
+
+
+            const parentNode = checkbox.parentElement;
+            const nextNode = parentNode.nextElementSibling;
 
             const projectName = checkbox.parentElement.dataset.projectName;
             const todoName = checkbox.parentElement.dataset.todoName;
@@ -221,11 +228,16 @@ export function btnCompleteListener() {
 
             changeCompletionStatus("Yes", projectName, todoName);
             completeStatus.textContent = "Yes";
+            completeStatus.setAttribute("completion", "Yes");
+            lastUl.after(parentNode);
 
         }
+        
         else {
             changeCompletionStatus("No", projectName, todoName);
             completeStatus.textContent = "No";
+            completeStatus.setAttribute("completion", "No");
+            nextNode.before(parentNode);
         }
 
 
@@ -233,6 +245,7 @@ export function btnCompleteListener() {
 })
 };
 
+    // DELETE ICON ON EVERY TO DO ITEM
 
 export function trashListener() {
 
@@ -259,6 +272,8 @@ export function trashListener() {
     })
 
 }
+
+    // ADD NEW TO DOS LOGIC
 
 
 export function addTaskListener() {
