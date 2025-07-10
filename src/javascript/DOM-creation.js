@@ -1,5 +1,5 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
-import { filterListener } from "./DOM-logic";
+import { addProjectListener, filterListener } from "./DOM-logic";
 
 const body = document.querySelector("body");
 
@@ -20,6 +20,8 @@ export function createDOM() {
     addSpans();
 
     filterListener();
+
+    addProjectListener();
 
 }
 
