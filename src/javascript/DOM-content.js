@@ -53,7 +53,6 @@ export function arrayProjectsToDOM() {
     
     })
 
-    addProjectListener();
     listenerProjectExpand();
     delProjectListener();
 
