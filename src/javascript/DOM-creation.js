@@ -23,6 +23,8 @@ export function createDOM() {
 
     addProjectListener();
 
+    displayAreaTabElements();
+
 }
 
 function mainElements() {
@@ -77,7 +79,45 @@ function projectsTabElements() {
     projectList.appendChild(displayArea);
 
 
-    arrayProjectsToDOM();
+    // arrayProjectsToDOM();
+}
+
+
+export function displayAreaTabElements() {
+
+        const displayArea = document.querySelector(".display-area");
+
+        const wrapperTitle = document.createElement("div");
+            wrapperTitle.setAttribute("class", "wrapper-title");
+
+        const projectTitle = document.createElement("h5");
+            projectTitle.setAttribute("class", "project-list-title");
+        
+        const delProject = document.createElement("div");
+            delProject.setAttribute("class", "del-project");
+
+        
+        displayArea.appendChild(wrapperTitle);
+        wrapperTitle.appendChild(projectTitle);
+        wrapperTitle.appendChild(delProject);
+        
+        
+        // if (projectToDoArray.length > 0) {
+        
+        // const ul = document.createElement("ul");
+
+        // // projectToDoArray.forEach((toDo) => {
+
+        //     const li = document.createElement("li");
+        //         li.textContent = toDo.title;
+            
+        //     ul.appendChild(li);
+
+        // // })
+    
+        // displayArea.appendChild(ul);
+    // }
+
 }
 
 
