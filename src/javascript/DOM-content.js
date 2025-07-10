@@ -29,10 +29,15 @@ export function arrayProjectsToDOM() {
         const delProject = document.createElement("div");
             delProject.setAttribute("class", "del-project");
 
+        
+        displayArea.appendChild(wrapperTitle);
+        wrapperTitle.appendChild(projectTitle);
+        wrapperTitle.appendChild(delProject);
+        
+        if (projectToDoArray.length > 0) {
+        
         const ul = document.createElement("ul");
 
-
-        
         projectToDoArray.forEach((toDo) => {
 
             const li = document.createElement("li");
@@ -42,10 +47,8 @@ export function arrayProjectsToDOM() {
 
         })
     
-        displayArea.appendChild(wrapperTitle);
-        wrapperTitle.appendChild(projectTitle);
-        wrapperTitle.appendChild(delProject);
         displayArea.appendChild(ul);
+    }
     
     })
 
