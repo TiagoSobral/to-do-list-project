@@ -1,8 +1,7 @@
 import { format } from "date-fns";
-import { arrayProjectsToDOM, showFilteredToDos, showProject } from "./DOM-content";
-import { addInputForNameProject, addInputsForToDos, btnAddToDo, removeProjectContentDOM, removeProjectListDOM, toDoElements } from "./DOM-creation";
+import { arrayProjectsToDOM, showFilteredToDos, showProject, toDosToDOM } from "./DOM-content";
+import { addInputForNameProject, addInputsForToDos, btnAddToDo, displayAreaTabElements, removeProjectContentDOM, removeProjectListDOM, toDoElements } from "./DOM-creation";
 import { addToDoItem, changeCompletionStatus, createToDoList, gatherToDos, removeProject, removeToDo } from "./to-do-list-action";
-import { de } from "date-fns/locale";
  
 
         // LEFT SIDE
@@ -79,6 +78,8 @@ function inputListener() {
             createToDoList(inputName.value);
 
             removeProjectListDOM()
+
+            displayAreaTabElements();
 
             arrayProjectsToDOM();
 
@@ -317,11 +318,9 @@ function btnAddListener() {
 
         addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority, projectTitle)
 
-        removeProjectListDOM();
-
         removeProjectContentDOM();
 
-        arrayProjectsToDOM();
+        toDosToDOM(projectTitle, inputTitle);
 
         showProject(projectTitle);
 
