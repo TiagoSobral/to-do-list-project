@@ -9,54 +9,86 @@ export function arrayProjectsToDOM() {
 
    
     allProjects.forEach((project, indexProject) => {
-       
-       
+
         const projectName = project.projectName;
-        
-        const projectToDoArray = project.toDoArray;
+       
+        const lastProjectCreated = displayArea.querySelector(".wrapper-title:last-child");
+            lastProjectCreated.setAttribute("data-project-name", `${projectName}`);
 
-        sort(projectToDoArray, "dueDate");
-
-
-        const wrapperTitle = document.createElement("div");
-            wrapperTitle.setAttribute("class", "wrapper-title");
-
-        const projectTitle = document.createElement("h5");
+        const projectTitle = lastProjectCreated.querySelector("h5");
             projectTitle.textContent = projectName;
             projectTitle.setAttribute("class", "project-list-title");
-            projectTitle.setAttribute("data-indexProject", `${indexProject}`)
-        
-        const delProject = document.createElement("div");
-            delProject.setAttribute("class", "del-project");
-
-        
-        displayArea.appendChild(wrapperTitle);
-        wrapperTitle.appendChild(projectTitle);
-        wrapperTitle.appendChild(delProject);
-        
-        
-        if (projectToDoArray.length > 0) {
-        
-        const ul = document.createElement("ul");
-
-        projectToDoArray.forEach((toDo) => {
-
-            const li = document.createElement("li");
-                li.textContent = toDo.title;
+            projectTitle.setAttribute("data-indexProject", `${indexProject}`);
             
+        
+        // const projectToDoArray = project.toDoArray;
+
+        // sort(projectToDoArray, "dueDate");
+
+
+        // const wrapperTitle = document.createElement("div");
+        //     wrapperTitle.setAttribute("class", "wrapper-title");
+
+        // // const projectTitle = document.createElement("h5");
+        //     // projectTitle.textContent = projectName;
+        //     projectTitle.setAttribute("class", "project-list-title");
+        //     // projectTitle.setAttribute("data-indexProject", `${indexProject}`)
+        
+        // const delProject = document.createElement("div");
+        //     delProject.setAttribute("class", "del-project");
+
+        
+        // displayArea.appendChild(wrapperTitle);
+        // wrapperTitle.appendChild(projectTitle);
+        // wrapperTitle.appendChild(delProject);
+        
+        
+    //     if (projectToDoArray.length > 0) {
+        
+    //     const ul = document.createElement("ul");
+
+    //     projectToDoArray.forEach((toDo) => {
+
+    //         const li = document.createElement("li");
+    //             li.textContent = toDo.title;
+            
+    //         ul.appendChild(li);
+
+    //     })
+    
+    //     displayArea.appendChild(ul);
+    // }
+    
+    // })
+
+    // listenerProjectExpand();
+    // delProjectListener();
+
+})
+}
+
+
+ export function toDosToDOM(selectedProject, toDoTitle) {
+
+    const projectsListOnDisplayArea = document.querySelectorAll(".wrapper-title");
+
+    projectsListOnDisplayArea.forEach((project) => {
+
+        if (project.dataset.projectName === selectedProject) {
+
+            const ul = document.createElement("ul");
+                
+                const li = document.createElement("li");
+                    li.textContent = toDoTitle;
+
+            project.after(ul);
             ul.appendChild(li);
 
-        })
-    
-        displayArea.appendChild(ul);
-    }
-    
+        }
+
     })
 
-    listenerProjectExpand();
-    delProjectListener();
-
-}
+ }
 
 
 export function showProject(name = "Main") {
@@ -112,6 +144,9 @@ export function showProject(name = "Main") {
     addTaskListener();
     btnCompleteListener();
 }
+
+
+
 
 export function showFilteredToDos(arrayOfToDos) {
 
