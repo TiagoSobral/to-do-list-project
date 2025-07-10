@@ -34,6 +34,7 @@ export function arrayProjectsToDOM() {
         wrapperTitle.appendChild(projectTitle);
         wrapperTitle.appendChild(delProject);
         
+        
         if (projectToDoArray.length > 0) {
         
         const ul = document.createElement("ul");
@@ -87,7 +88,8 @@ export function showProject(name = "Main") {
             toDoParentElement.setAttribute("priority", `${toDo.priority}`)
             toDoParentElement.setAttribute("data-project-name", `${bring.projectName}`);
             toDoParentElement.setAttribute("data-todo-name", `${toDo.title}`);
-            
+            toDoParentElement.setAttribute("complete", `${toDo.completion}`);
+
             const toDoInfo = toDoParentElement.querySelectorAll("li");
         
         const checkbox = toDoParentElement.querySelector("input[type='checkbox']");

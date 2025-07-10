@@ -77,6 +77,11 @@ select {
 
 }
 
+ul[complete="Yes"] {
+
+     filter: grayscale(1);
+}
+
 
 .checkbox[checked="Yes"]::after {
   position: absolute;

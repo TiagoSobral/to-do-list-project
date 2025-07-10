@@ -206,8 +206,6 @@ export function btnCompleteListener() {
 
     const checkboxes = document.querySelectorAll(".checkbox");
 
-    let nextNodeBeforeChange;
-
     const lastUl = document.querySelector(".project-to-dos ul:last-of-type");
 
     checkboxes.forEach((checkbox) => {
@@ -227,17 +225,23 @@ export function btnCompleteListener() {
         if (status === "No") {
 
             changeCompletionStatus("Yes", projectName, todoName);
+            
             completeStatus.textContent = "Yes";
             checkbox.setAttribute("checked", "Yes");
             lastUl.after(parentNode);
+
+            parentNode.setAttribute("complete", "Yes");
 
         }
         
         else {
             changeCompletionStatus("No", projectName, todoName);
+            
             completeStatus.textContent = "No";
-            checkbox.setAttribute("checked", false);
+            checkbox.setAttribute("checked", "No");
             nextNode.before(parentNode);
+
+            parentNode.setAttribute("complete", "No");
         }
 
 
