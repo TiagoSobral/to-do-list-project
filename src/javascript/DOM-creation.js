@@ -25,7 +25,6 @@ export function createDOM() {
 
     addTaskListener();
 
-    displayAreaTabElements();
 
 }
 
@@ -260,7 +259,6 @@ export function addInputsForToDos(title = "", description = "", dueDate = "", op
 
 
     const form = document.createElement("form");
-        const ul = document.createElement("ul");
             
             const inputTitle = document.createElement("input");
                 inputTitle.setAttribute("type", "text");
@@ -312,16 +310,15 @@ export function addInputsForToDos(title = "", description = "", dueDate = "", op
 
     projectToDos.insertBefore(form, addToDo);
        
-    form.appendChild(ul);
            
-        ul.appendChild(inputTitle);
-            ul.appendChild(inputDescription);
-            ul.appendChild(inputDueDate);
-            ul.appendChild(inputPriority);
+            form.appendChild(inputTitle);
+            form.appendChild(inputDescription);
+            form.appendChild(inputDueDate);
+            form.appendChild(inputPriority);
                 inputPriority.appendChild(optionHigh);
                 inputPriority.appendChild(optionMedium);
                 inputPriority.appendChild(optionLow);
-            ul.appendChild(inputSubmit);
+            form.appendChild(inputSubmit);
 
 
 
@@ -330,15 +327,14 @@ export function addInputsForToDos(title = "", description = "", dueDate = "", op
 
 
 export function removeProjectContentDOM() {
-    const todosContentDOM = document.querySelectorAll(".project-to-dos ul");
-
-    // const btnAddTask = document.querySelectorAll(".add-todo");
+    const todosContentDOM = document.querySelectorAll(".project-to-dos > *:not(.add-todo)");
 
     todosContentDOM.forEach((element) => element.remove());
 
-    // btnAddTask.forEach((element) => element.remove());
 
 }
+
+
 
 
 
