@@ -94,7 +94,6 @@ export function arrayProjectsToDOM() {
 export function showProject(name = "Main") {
 
 
-
     const bring = findProject(name).nameProject;
 
     let toDosOfProject = bring.toDoArray;
@@ -115,8 +114,8 @@ export function showProject(name = "Main") {
         toDoElements();
 
        
-        const toDoParentElement = projectToDos.querySelector("ul:last-child");
-            toDoParentElement.setAttribute("priority", `${toDo.priority}`)
+        const toDoParentElement = projectToDos.querySelector("ul:last-of-type");
+            toDoParentElement.setAttribute("priority", `${toDo.priority}`);
             toDoParentElement.setAttribute("data-project-name", `${bring.projectName}`);
             toDoParentElement.setAttribute("data-todo-name", `${toDo.title}`);
             toDoParentElement.setAttribute("complete", `${toDo.completion}`);
@@ -139,9 +138,7 @@ export function showProject(name = "Main") {
 
 
     editToDo();
-    btnAddToDo();
     trashListener();
-    addTaskListener();
     btnCompleteListener();
 }
 
