@@ -79,11 +79,7 @@ function inputListener() {
 
             removeProjectListDOM()
 
-            displayAreaTabElements();
-
             arrayProjectsToDOM();
-
-
         }
 
     } )
@@ -112,6 +108,8 @@ export function delProjectListener() {
 
     })
 }
+
+
 
 function toDosByFilter(projectKey) {
 
@@ -158,10 +156,10 @@ export function editToDo() {
 
     btnEdit.forEach((btn) => btn.addEventListener("click", () => {
 
-        // debugger;
-        const editParentElement = btn.parentElement;
+        const parentElement = btn.parentElement;
+        const projectTitle = parentElement.dataset.projectName;
 
-        const dataFromToDo = editParentElement.querySelectorAll("[data-class]");
+        const dataFromToDo = parentElement.querySelectorAll("[data-class]");
 
         let title = dataFromToDo[0].textContent;
         let description = dataFromToDo[1].textContent;
@@ -169,7 +167,9 @@ export function editToDo() {
         let priority = dataFromToDo[3].textContent;
 
         
-        editParentElement.remove();
+        parentElement.remove();
+
+        removeToDo(title, projectTitle);
 
         addInputsForToDos(title, description, dueDate);
 
@@ -316,9 +316,13 @@ function btnAddListener() {
 
         e.preventDefault();
 
-        addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority, projectTitle)
-
         removeProjectContentDOM();
+
+        removeProjectListDOM();
+
+        addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority, projectTitle);
+
+        arrayProjectsToDOM();
 
         toDosToDOM(projectTitle, inputTitle);
 
@@ -327,4 +331,6 @@ function btnAddListener() {
     })
 
 }
+
+
 
