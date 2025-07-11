@@ -1,5 +1,5 @@
 import { arrayProjectsToDOM, showProject } from "./DOM-content";
-import { addProjectListener, filterListener } from "./DOM-logic";
+import { addProjectListener, addTaskListener, filterListener } from "./DOM-logic";
 
 const body = document.querySelector("body");
 
@@ -22,6 +22,8 @@ export function createDOM() {
     filterListener();
 
     addProjectListener();
+
+    addTaskListener();
 
     displayAreaTabElements();
 
@@ -187,12 +189,15 @@ function projectContentElements() {
     projectContent.appendChild(projectTitle);
     projectContent.appendChild(projectToDos);
 
+    btnAddToDo();
+
 }
 
 
 export function toDoElements() {
 
-    const projectToDos = document.querySelector(".project-to-dos");
+    
+    const btnAddTask = document.querySelector(".add-todo");
             
         const ul = document.createElement("ul");
 
@@ -209,7 +214,7 @@ export function toDoElements() {
                 btnStatus.setAttribute("value", "Yes");
                 btnStatus.setAttribute("class", "checkbox");
 
-        projectToDos.appendChild(ul);
+        btnAddTask.before(ul);
 
 
        
@@ -325,13 +330,13 @@ export function addInputsForToDos(title = "", description = "", dueDate = "", op
 
 
 export function removeProjectContentDOM() {
-    const todosContentDOM = document.querySelectorAll(".project-to-dos > *");
+    const todosContentDOM = document.querySelectorAll(".project-to-dos ul");
 
-    const btnAddTask = document.querySelectorAll(".add-todo");
+    // const btnAddTask = document.querySelectorAll(".add-todo");
 
     todosContentDOM.forEach((element) => element.remove());
 
-    btnAddTask.forEach((element) => element.remove());
+    // btnAddTask.forEach((element) => element.remove());
 
 }
 
