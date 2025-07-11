@@ -1,14 +1,17 @@
-import { btnAddToDo, toDoElements } from "./DOM-creation";
+import { btnAddToDo, displayAreaTabElements, toDoElements } from "./DOM-creation";
 import { addProjectListener, addTaskListener, btnCompleteListener, delProjectListener, editToDo, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
 import { findProject, sort} from "./to-do-list-action";
 
 export function arrayProjectsToDOM() {
 
+
     const displayArea = document.querySelector(".display-area");
 
    
     allProjects.forEach((project, indexProject) => {
+
+        displayAreaTabElements();
 
         const projectName = project.projectName;
        
@@ -61,8 +64,8 @@ export function arrayProjectsToDOM() {
     
     // })
 
-    // listenerProjectExpand();
-    // delProjectListener();
+    listenerProjectExpand();
+    delProjectListener();
 
 })
 }
