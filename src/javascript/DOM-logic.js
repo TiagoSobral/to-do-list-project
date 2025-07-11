@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import { arrayProjectsToDOM, showFilteredToDos, showProject, toDosToDOM } from "./DOM-content";
 import { addInputForNameProject, addInputsForToDos, btnAddToDo, displayAreaTabElements, removeProjectContentDOM, removeProjectListDOM, toDoElements } from "./DOM-creation";
 import { addToDoItem, changeCompletionStatus, createToDoList, gatherToDos, removeProject, removeToDo } from "./to-do-list-action";
+import { de } from "date-fns/locale";
  
 
         // LEFT SIDE
@@ -52,7 +53,6 @@ export function filterListener() {
 
             btn.addEventListener("click", () => {
 
-                // debugger;
             let btnValue = btn.textContent;
         
             removeProjectContentDOM();
@@ -98,9 +98,14 @@ export function delProjectListener() {
             const parentNode = trash.parentElement;
 
             const parentNodeList = parentNode.nextElementSibling;
+            
+            parentNode.remove();
 
-        parentNode.remove();
-        parentNodeList.remove();
+        
+        if (parentNodeList !== null) {
+
+            parentNodeList.remove();
+        }
 
         removeProject(trash.dataset.indexnumber);
 
@@ -111,7 +116,7 @@ export function delProjectListener() {
 
 
 
-function toDosByFilter(projectKey) {
+export function toDosByFilter(projectKey) {
 
     const toDos = gatherToDos().arrayOfGathered;
 
@@ -321,10 +326,11 @@ function btnAddListener() {
         removeProjectListDOM();
 
         addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority, projectTitle);
+    
 
         arrayProjectsToDOM();
 
-        toDosToDOM(projectTitle, inputTitle);
+        // toDosToDOM(projectTitle, inputTitle);
 
         showProject(projectTitle);
 
