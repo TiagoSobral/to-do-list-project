@@ -118,10 +118,13 @@ export function showFilteredToDos(arrayOfToDos) {
 
         const listItem = lastUl.querySelectorAll("li");
 
+        const checkBox = projectToDos.querySelector("[type='checkbox']");
+            checkBox.setAttribute("checked", `${toDo.completion}`);
 
         for (let index = 0; index < value.length ; index++) {
 
             lastUl.setAttribute("priority", `${toDo.priority}`);
+            lastUl.setAttribute("complete", `${toDo.completion}`);
 
             listItem[index].textContent = value[index];
 
