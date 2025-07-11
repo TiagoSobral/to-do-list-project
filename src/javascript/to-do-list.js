@@ -24,3 +24,23 @@ export class ToDoItem{
     } 
 
 }
+
+
+export function savesProjects() {
+
+    localStorage.setItem("AllProjects", JSON.stringify(allProjects));
+
+
+
+}
+
+export function looksForStoredProjects() {
+   
+    document.addEventListener("DOMContentLoaded", () => {
+
+        let currentAllProjects = JSON.parse(localStorage.getItem("AllProjects"));
+
+        allProjects = currentAllProjects;
+    })
+
+}
