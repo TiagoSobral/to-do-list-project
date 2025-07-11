@@ -39,6 +39,32 @@ select {
 
 }
 
+.project-to-dos > form{
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) repeat(2, 0.5fr);
+    gap: 1rem;
+
+    justify-items: start;
+    padding: 0 1.5rem;
+    padding: 1rem auto;
+
+    border-radius: 0.5rem;
+
+}
+
+
+.project-to-dos > form {
+
+    background-color: rgb(243, 228, 199);
+
+}
+
+.project-to-dos > form > * {
+
+    margin: 0.7rem auto;
+}
+
 
 .project-to-dos form input {
 
@@ -51,10 +77,6 @@ select {
     font-size: 0.95rem;
 }
 
-
-.project-to-dos form {
-    margin-top: 0.5rem;
-}
 
 [priority = "High"] {
 
@@ -70,7 +92,7 @@ select {
 
 }
 
-[priority = "Low"] {
+[priority = "Low"], .project-to-dos > form > ul {
 
     background-color: rgba(243, 228, 199, 0.247);
 
