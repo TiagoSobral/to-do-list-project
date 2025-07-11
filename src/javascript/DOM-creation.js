@@ -84,8 +84,9 @@ function projectsTabElements() {
 }
 
 
-export function displayAreaTabElements() {
+export function displayAreaTabElements(arrayOfTodos) {
 
+    // debugger;
         const displayArea = document.querySelector(".display-area");
 
         const wrapperTitle = document.createElement("div");
@@ -97,27 +98,23 @@ export function displayAreaTabElements() {
         const delProject = document.createElement("div");
             delProject.setAttribute("class", "del-project");
 
-        
-        displayArea.appendChild(wrapperTitle);
-        wrapperTitle.appendChild(projectTitle);
-        wrapperTitle.appendChild(delProject);
-        
-        
-        // if (projectToDoArray.length > 0) {
-        
-        // const ul = document.createElement("ul");
+        const listOfToDos = document.createElement("ul");
+            listOfToDos.setAttribute("class", "list-of-to-dos");
 
-        // // projectToDoArray.forEach((toDo) => {
 
-        //     const li = document.createElement("li");
-        //         li.textContent = toDo.title;
-            
-        //     ul.appendChild(li);
+         displayArea.appendChild(wrapperTitle);
+            wrapperTitle.appendChild(projectTitle);
+            wrapperTitle.appendChild(delProject);
+        displayArea.appendChild(listOfToDos);
 
-        // // })
+
+    for (let index = 0; index < arrayOfTodos.length; index++) {
+       
+        const listItem = document.createElement("li");
+            listItem.setAttribute("class", "to-do-item");
     
-        // displayArea.appendChild(ul);
-    // }
+        listOfToDos.appendChild(listItem);
+    }
 
 }
 
