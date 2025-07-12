@@ -23,7 +23,10 @@ export function addToDoItem(title, description, dueDate, priority, selectProject
 
     allProjects.map((project) => { 
         if (project.projectName === selectProject) {
+            
             project.toDoArray.push(newToDo);
+
+            sort(project.toDoArray, "dueDate");
         }
 
     })
@@ -123,9 +126,9 @@ export function sort(array, sortBy) {
 
         if (sortBy === "dueDate") {
 
-            comparatorA = a.dueDate.toLowerCase();
+            comparatorA = a.dueDate;
 
-            comparatorB = b.dueDate.toLowerCase();
+            comparatorB = b.dueDate;
 
         }
         else {
