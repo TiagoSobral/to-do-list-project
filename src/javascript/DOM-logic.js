@@ -3,6 +3,7 @@ import { arrayProjectsToDOM, showFilteredToDos, showProject } from "./DOM-conten
 import { addInputForNameProject, addInputsForToDos, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
 import { addToDoItem, changeCompletionStatus, createToDoList, gatherToDos, removeProject, removeToDo, sort } from "./to-do-list-action";
 import { savesProjects } from "./to-do-list";
+import { de } from "date-fns/locale";
  
 
         // LEFT SIDE
@@ -98,9 +99,12 @@ export function delProjectListener() {
 
         trash.addEventListener("click", () => {
 
+            debugger;
             const parentNode = trash.parentElement;
 
             const parentNodeList = parentNode.nextElementSibling;
+
+            const projectIndex = parentNode.dataset.projectIndex;
             
             parentNode.remove();
 
@@ -110,9 +114,9 @@ export function delProjectListener() {
             parentNodeList.remove();
         }
 
-        removeProject(trash.dataset.indexnumber);
+            removeProject(projectIndex);
 
-        savesProjects();
+            savesProjects();
 
         });
 

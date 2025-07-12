@@ -21,6 +21,7 @@ export function arrayProjectsToDOM() {
        
         const lastProjectCreated = displayArea.querySelector(".wrapper-title:last-of-type");
             lastProjectCreated.setAttribute("data-project-name", `${projectName}`);
+            lastProjectCreated.setAttribute("data-project-index", `${indexProject}`);
 
         const projectTitle = lastProjectCreated.querySelector("h5");
             projectTitle.textContent = projectName;

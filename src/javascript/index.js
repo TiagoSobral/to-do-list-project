@@ -9,7 +9,6 @@ import { arrayProjectsToDOM, showProject } from "./DOM-content.js";
 import { filterListener, addProjectListener, addTaskListener } from "./DOM-logic.js";
 
 
-
 createDOM();
 
 createToDoList();
