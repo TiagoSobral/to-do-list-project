@@ -99,7 +99,6 @@ export function delProjectListener() {
 
         trash.addEventListener("click", () => {
 
-            debugger;
             const parentNode = trash.parentElement;
 
             const parentNodeList = parentNode.nextElementSibling;
