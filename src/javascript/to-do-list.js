@@ -30,17 +30,20 @@ export function savesProjects() {
 
     localStorage.setItem("AllProjects", JSON.stringify(allProjects));
 
-
-
 }
 
 export function looksForStoredProjects() {
    
-    document.addEventListener("DOMContentLoaded", () => {
+    
 
-        let currentAllProjects = JSON.parse(localStorage.getItem("AllProjects"));
+    let currentAllProjects = localStorage.getItem("AllProjects");
 
-        allProjects = currentAllProjects;
-    })
+    if (currentAllProjects) {
+        const updatedProjects = JSON.parse(currentAllProjects);
+
+        allProjects = updatedProjects;
+        console.log(updatedProjects);
+
+    }
 
 }
