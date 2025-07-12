@@ -284,10 +284,15 @@ export function trashListener() {
         trashIcon.addEventListener("click", () => {
 
             removeToDo(toDoName, projectTitle);
+
+            removeProjectListDOM();
             
             lineToErase.remove();
 
             savesProjects();
+
+            arrayProjectsToDOM();
+
 
         })
 
