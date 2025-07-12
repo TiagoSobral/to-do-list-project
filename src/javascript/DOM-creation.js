@@ -15,8 +15,6 @@ export function createDOM() {
 
     projectContentElements();
 
-    showProject();
-
     addSpans();
 
     filterListener();
