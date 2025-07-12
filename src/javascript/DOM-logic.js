@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { arrayProjectsToDOM, showFilteredToDos, showProject } from "./DOM-content";
 import { addInputForNameProject, addInputsForToDos, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
-import { addToDoItem, changeCompletionStatus, createToDoList, gatherToDos, removeProject, removeToDo } from "./to-do-list-action";
+import { addToDoItem, changeCompletionStatus, createToDoList, gatherToDos, removeProject, removeToDo, sort } from "./to-do-list-action";
 import { savesProjects } from "./to-do-list";
  
 
@@ -187,7 +187,6 @@ export function editToDo() {
 
         btnAddListener();
     
-        
     }
 ))
 
@@ -223,9 +222,8 @@ export function btnCompleteListener() {
         
         checkbox.addEventListener("click", () => {
 
-            // debugger;
+
             const parentNode = checkbox.parentElement;
-            const nextNode = parentNode.nextElementSibling;
 
             const projectName = checkbox.parentElement.dataset.projectName;
             const todoName = checkbox.parentElement.dataset.todoName;
@@ -233,12 +231,15 @@ export function btnCompleteListener() {
             const completeStatus = checkbox.previousElementSibling;
             const status =  completeStatus.textContent;
 
+
         if (status === "No") {
 
             changeCompletionStatus("Yes", projectName, todoName);
             
             completeStatus.textContent = "Yes";
+            
             checkbox.setAttribute("checked", "Yes");
+            
             lastUl.after(parentNode);
 
             parentNode.setAttribute("complete", "Yes");
@@ -249,8 +250,8 @@ export function btnCompleteListener() {
             changeCompletionStatus("No", projectName, todoName);
             
             completeStatus.textContent = "No";
+            
             checkbox.setAttribute("checked", "No");
-            nextNode.before(parentNode);
 
             parentNode.setAttribute("complete", "No");
         }
@@ -278,9 +279,10 @@ export function trashListener() {
         trashIcon.addEventListener("click", () => {
 
             removeToDo(toDoName, projectTitle);
+            
             lineToErase.remove();
 
-
+            savesProjects();
 
         })
 
