@@ -167,6 +167,7 @@ export function editToDo() {
     btnEdit.forEach((btn) => btn.addEventListener("click", () => {
 
         const parentElement = btn.parentElement;
+        const nextNode = parentElement.nextElementSibling;
         const projectTitle = parentElement.dataset.projectName;
 
         const dataFromToDo = parentElement.querySelectorAll("[data-class]");
@@ -184,6 +185,10 @@ export function editToDo() {
         addInputsForToDos(title, description, dueDate);
 
         getPreviousPriorityValue(priority);
+
+        const toDoFormElement = document.querySelector(".project-to-dos form");
+
+        nextNode.before(toDoFormElement);
 
         btnAddListener();
     
