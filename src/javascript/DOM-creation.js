@@ -17,13 +17,6 @@ export function createDOM() {
 
     addSpans();
 
-    filterListener();
-
-    addProjectListener();
-
-    addTaskListener();
-
-
 }
 
 function mainElements() {
