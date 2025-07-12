@@ -1,8 +1,8 @@
 import { format } from "date-fns";
-import { arrayProjectsToDOM, showFilteredToDos, showProject, toDosToDOM } from "./DOM-content";
-import { addInputForNameProject, addInputsForToDos, btnAddToDo, displayAreaTabElements, removeProjectContentDOM, removeProjectListDOM, toDoElements } from "./DOM-creation";
+import { arrayProjectsToDOM, showFilteredToDos, showProject } from "./DOM-content";
+import { addInputForNameProject, addInputsForToDos, removeProjectContentDOM, removeProjectListDOM } from "./DOM-creation";
 import { addToDoItem, changeCompletionStatus, createToDoList, gatherToDos, removeProject, removeToDo } from "./to-do-list-action";
-import { de } from "date-fns/locale";
+import { savesProjects } from "./to-do-list";
  
 
         // LEFT SIDE
@@ -34,6 +34,7 @@ export function addProjectListener() {
     const btnAddProject = document.querySelector(".add-project");
 
     btnAddProject.addEventListener("click", () => {
+
 
         addInputForNameProject();
 
@@ -80,6 +81,8 @@ function inputListener() {
             removeProjectListDOM()
 
             arrayProjectsToDOM();
+
+            savesProjects();
         }
 
     } )
@@ -108,6 +111,8 @@ export function delProjectListener() {
         }
 
         removeProject(trash.dataset.indexnumber);
+
+        savesProjects();
 
         });
 
@@ -218,7 +223,7 @@ export function btnCompleteListener() {
         
         checkbox.addEventListener("click", () => {
 
-
+            // debugger;
             const parentNode = checkbox.parentElement;
             const nextNode = parentNode.nextElementSibling;
 
@@ -250,7 +255,7 @@ export function btnCompleteListener() {
             parentNode.setAttribute("complete", "No");
         }
 
-
+        savesProjects();
     })
 })
 };
@@ -326,13 +331,13 @@ function btnAddListener() {
         removeProjectListDOM();
 
         addToDoItem(inputTitle, inputDescription, inputDueDate, inputPriority, projectTitle);
-    
 
+        savesProjects();
+        
         arrayProjectsToDOM();
 
-        // toDosToDOM(projectTitle, inputTitle);
-
         showProject(projectTitle);
+
 
     })
 
