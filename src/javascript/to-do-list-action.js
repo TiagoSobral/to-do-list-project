@@ -27,7 +27,6 @@ export function addToDoItem(title, description, dueDate, priority, selectProject
         }
 
     })
-
 }
 
 export function findProject(selectProject = "Main") {
@@ -80,10 +79,10 @@ export function changeCompletionStatus(answer, selectProject, selectToDo) {
 
     let toDoOfChosen = arrayOfToDos[bring.toDoIndex];
 
-    toDoOfChosen.taskStatus(answer);
+    // toDoOfChosen.taskStatus(answer);
+    toDoOfChosen.completion = `${answer}`;
 
     sort(arrayOfToDos, "Completion");
-
 
 }
 
@@ -100,12 +99,14 @@ export function removeToDo(selectToDo, selectProject = defaultValue) {
 
     toDosList.splice(bring.toDoIndex,1);
 
+
 }
 
 
 export function removeProject(projectIndex) {
 
     allProjects.splice(projectIndex,1);
+
 
 }
 
