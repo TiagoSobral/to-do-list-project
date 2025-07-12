@@ -34,10 +34,7 @@ export function arrayProjectsToDOM() {
                 listItems[index].textContent = projectToDos[index].title;
 
         }
-            
-        // const projectToDoArray = project.toDoArray;
 
-        // sort(projectToDoArray, "dueDate");
 
 
     listenerProjectExpand();
@@ -108,7 +105,7 @@ export function showFilteredToDos(arrayOfToDos) {
 
 
     arrayOfToDos.forEach((toDo) => {
-        // debugger;
+
         let value =  Object.values(toDo);
 
         toDoElements();
