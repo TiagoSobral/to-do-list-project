@@ -1,11 +1,11 @@
-import { btnAddToDo, displayAreaTabElements, toDoElements, toDoListElementsForDisplayArea } from "./DOM-creation";
-import { addProjectListener, addTaskListener, btnCompleteListener, delProjectListener, editToDo, listenerProjectExpand, trashListener } from "./DOM-logic";
+import { displayAreaTabElements, toDoElements } from "./DOM-creation";
+import { btnCompleteListener, delProjectListener, editToDo, listenerProjectExpand, trashListener } from "./DOM-logic";
 import { allProjects } from "./to-do-list";
 import { findProject, sort} from "./to-do-list-action";
 
+
 export function arrayProjectsToDOM() {
-
-
+    
     const displayArea = document.querySelector(".display-area");
 
    
@@ -50,7 +50,6 @@ export function arrayProjectsToDOM() {
 
 
 export function showProject(name = "Main") {
-
 
     const bring = findProject(name).nameProject;
 
@@ -109,22 +108,21 @@ export function showFilteredToDos(arrayOfToDos) {
 
 
     arrayOfToDos.forEach((toDo) => {
-
+        // debugger;
         let value =  Object.values(toDo);
 
         toDoElements();
 
         const lastUl = projectToDos.querySelector("ul:last-of-type");
+            lastUl.setAttribute("priority", `${toDo.priority}`);
+            lastUl.setAttribute("complete", `${toDo.completion}`);
 
         const listItem = lastUl.querySelectorAll("li");
 
-        const checkBox = projectToDos.querySelector("[type='checkbox']");
+        const checkBox = lastUl.querySelector(".checkbox");
             checkBox.setAttribute("checked", `${toDo.completion}`);
 
         for (let index = 0; index < value.length ; index++) {
-
-            lastUl.setAttribute("priority", `${toDo.priority}`);
-            lastUl.setAttribute("complete", `${toDo.completion}`);
 
             listItem[index].textContent = value[index];
 
